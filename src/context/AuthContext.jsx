@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { message } from 'antd';
 
 // <<< URL BASE DA SUA API BACKEND >>>
-const API_BASE_URL = 'http://localhost:3001/api/v1'; // Ajuste a URL base da sua API
+const API_BASE_URL = 'https://geral-talismaapi.r954jc.easypanel.host/api/v1'; // Ajuste a URL base da sua API
 
 // Chave para armazenar os dados de autenticação no localStorage
 const AUTH_STORAGE_KEY = 'agro_auth_data'; // Nome da chave no localStorage

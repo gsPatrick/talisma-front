@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.use(
     '/api', // Caminho a ser interceptado (requisições que começam com /api)
     createProxyMiddleware({
-      target: 'http://localhost:3001', // O endereço do seu backend
+      target: 'https://geral-talismaapi.r954jc.easypanel.host/', // O endereço do seu backend
       changeOrigin: true,
       secure: false, // Use true se seu backend usa HTTPS
     })
@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.use(
     '/uploads', // Caminho a ser interceptado (requisições que começam com /uploads)
     createProxyMiddleware({
-      target: 'http://localhost:3001', // O endereço do seu backend
+      target: 'https://geral-talismaapi.r954jc.easypanel.host/', // O endereço do seu backend
       changeOrigin: true,
       secure: false, // Use true se seu backend usa HTTPS
     })

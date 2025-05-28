@@ -14,7 +14,7 @@ const { Title, Paragraph, Text } = Typography;
 const { TabPane } = Tabs;
 
 // <<< URL BASE DA SUA API BACKEND >>>
-const API_BASE_URL = 'http://localhost:3001/api/v1'; // Ajuste a URL base da sua API
+const API_BASE_URL = 'https://geral-talismaapi.r954jc.easypanel.host/api/v1'; // Ajuste a URL base da sua API
 
 // Helper para formatar preço (Mantido)
 const formatPrice = (value) => {

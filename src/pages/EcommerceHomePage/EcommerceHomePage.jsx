@@ -21,7 +21,7 @@ const { Content } = Layout;
 // CORRIGIDO: Usando a sintaxe correta para acessar variáveis de ambiente no frontend com Vite (import.meta.env).
 // Assume que a variável de ambiente no seu .env do frontend se chama VITE_REACT_APP_API_URL.
 // Exemplo no .env (ou .env.development) do frontend: VITE_REACT_APP_API_URL=http://localhost:3001/api/v1
-const API_BASE_URL = import.meta.env.VITE_REACT_APP_API_URL || 'http://localhost:3001/api/v1';
+const API_BASE_URL = import.meta.env.VITE_REACT_APP_API_URL || 'https://geral-talismaapi.r954jc.easypanel.host/api/v1';
 console.log(`Frontend: Using API_BASE_URL: ${API_BASE_URL}`); // Log the base URL being used
 
 

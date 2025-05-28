@@ -34,7 +34,7 @@ const logoUrl = "https://i.imgur.com/xOouAUy.png"; // <<<< ESTA LINHA DEVE ESTAR
 
 
 // <<< URL BASE DA SUA API BACKEND >>>
-const API_BASE_URL =  'http://localhost:3001/api/v1'; // Ajuste a URL base da sua API
+const API_BASE_URL =  'https://geral-talismaapi.r954jc.easypanel.host/api/v1'; // Ajuste a URL base da sua API
 
 
 // Definição das categorias e subcategorias COM slugs (Mantida)

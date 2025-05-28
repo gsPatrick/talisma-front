@@ -21,7 +21,7 @@ const { Search } = Input;
 
 // <<< URL BASE DA SUA API BACKEND >>>
 // Use process.env.REACT_APP_API_URL como primário, com fallback para localhost:3000
-const API_BASE_URL = 'http://localhost:3001/api/v1'; // Ajuste a URL base da sua API
+const API_BASE_URL = 'https://geral-talismaapi.r954jc.easypanel.host/api/v1'; // Ajuste a URL base da sua API
 
 
 // Helper para formatar preço (Mantida)
