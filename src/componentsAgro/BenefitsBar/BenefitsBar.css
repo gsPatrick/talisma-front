@@ -1,0 +1,125 @@
+/* src/componentsAgro/BenefitsBar.css */
+
+@keyframes benefitItemFadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .benefits-bar-section.modern {
+    background-color: #f8f9fa; /* Fundo cinza bem claro, quase branco */
+    padding: 1.2rem 1.5rem; /* Padding vertical ligeiramente maior */
+    border-bottom: 1px solid #e9ecef; /* Borda ainda mais sutil */
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* Para conter animações se necessário */
+  }
+  
+  .benefits-container.modern {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem 2.5rem; /* Aumenta o gap */
+  }
+  
+  .benefit-item.modern {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem; /* Aumenta espaço ícone/texto */
+    text-align: left;
+    flex: 0 1 auto;
+    padding: 0.5rem 0.8rem; /* Padding interno sutil */
+    border-radius: 8px; /* Borda arredondada para hover */
+    cursor: default; /* Ou 'pointer' se for um link */
+    /* Animação de entrada */
+    opacity: 0; /* Começa invisível */
+    animation: benefitItemFadeInUp 0.5s ease-out forwards;
+    /* Delay escalonado para cada item (ajuste se tiver mais/menos itens) */
+  }
+  .benefit-item.modern:nth-child(1) { animation-delay: 0.1s; }
+  .benefit-item.modern:nth-child(2) { animation-delay: 0.2s; }
+  .benefit-item.modern:nth-child(3) { animation-delay: 0.3s; }
+  .benefit-item.modern:nth-child(4) { animation-delay: 0.4s; }
+  /* Adicione mais nth-child se tiver mais benefícios */
+  
+  /* Transição suave para o hover */
+  .benefit-item.modern {
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Efeito Hover */
+  .benefit-item.modern:hover {
+    transform: translateY(-4px); /* Levanta um pouco */
+    background-color: #ffffff; /* Fundo branco no hover */
+    box-shadow: 0 4px 15px rgba(0, 92, 64, 0.08); /* Sombra verde sutil */
+  }
+  
+  /* Ícone */
+  .benefit-icon.modern {
+    font-size: 2em; /* Ícone ligeiramente maior */
+    color: #005C40;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: transform 0.3s ease; /* Transição para o ícone */
+  }
+  .benefit-item.modern:hover .benefit-icon.modern {
+      transform: scale(1.1) rotate(-5deg); /* Animação sutil no ícone */
+  }
+  
+  
+  /* Texto */
+  .benefit-text.modern {
+    font-size: 0.95em; /* Ligeiramente maior */
+    font-weight: 500;
+    color: #343a40; /* Texto um pouco mais escuro para contraste */
+    line-height: 1.4; /* Ajuste */
+    transition: color 0.3s ease;
+  }
+  .benefit-item.modern:hover .benefit-text.modern {
+      color: #004d35; /* Verde mais escuro no hover do texto */
+  }
+  
+  
+  /* Responsividade */
+  @media (max-width: 992px) {
+    .benefits-container.modern {
+      /* Usar grid para melhor controle de 2 colunas */
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Sempre 2 colunas */
+      gap: 1.5rem; /* Espaço entre itens do grid */
+      justify-items: center; /* Centraliza itens dentro das células do grid */
+    }
+     .benefit-item.modern {
+        width: 100%; /* Ocupa a célula */
+        max-width: 300px; /* Limita largura máxima */
+        justify-content: flex-start; /* Alinha conteúdo à esquerda dentro do item */
+        /* Remove a base flex para que o grid controle */
+        flex: none;
+     }
+     /* Reseta delays para evitar buracos se número de itens for ímpar */
+     .benefit-item.modern { animation-delay: 0.1s !important; }
+  
+  }
+  
+  @media (max-width: 576px) {
+    .benefits-bar-section.modern { padding: 1rem; }
+    .benefits-container.modern {
+      grid-template-columns: 1fr; /* Uma coluna */
+      gap: 1rem;
+    }
+     .benefit-item.modern {
+        max-width: 350px; /* Permite ser um pouco mais largo */
+        padding: 0.6rem 0.8rem;
+        justify-content: center; /* Centraliza na coluna única */
+     }
+      .benefit-icon.modern { font-size: 1.8em; }
+      .benefit-text.modern { font-size: 0.9em; }
+  }

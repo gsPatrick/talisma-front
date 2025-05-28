@@ -1,0 +1,543 @@
+/* src/componentsAgro/HeaderAgro.css */
+
+/* Variáveis CSS (Opcional, mas boa prática se usar cores em muitos lugares) */
+:root {
+    --primary-color: #005C40; /* Cor Verde Principal */
+    --primary-color-hover: #007a54; /* Verde mais escuro no hover */
+    --primary-color-light: #e6f4ea; /* Verde bem claro para fundos/hover */
+    --text-dark: #333; /* Cor de texto principal */
+    --text-medium: #555; /* Cor de texto secundária/labels */
+    --text-light: #aaa; /* Cor para placeholders/ícones neutros */
+    --border-color-base: #d9d9d9; /* Cor de borda padrão */
+    --border-color-hover: #005C40; /* Cor de borda no hover/focus */
+    --background-white: #ffffff; /* Fundo branco */
+    --background-light-grey: #f8f9fa; /* Fundo cinza claro */
+    --error-color: #e15947; /* Cor de erro/perigo (vermelho) */
+    --shadow-base: 0 1px 4px rgba(0, 0, 0, 0.06); /* Sombra sutil */
+    --shadow-focus: 0 0 0 2px rgba(0, 92, 64, 0.08); /* Sombra no foco/hover */
+    --border-color-active: #005C40; /* Cor de borda ativa */
+}
+
+
+.agro-header.modern {
+    background-color: var(--background-white);
+    color: var(--text-dark);
+    box-shadow: var(--shadow-base);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: box-shadow 0.3s ease;
+  }
+
+  /* Wrapper para controlar largura máxima */
+  .header-container-wrapper {
+      max-width: 1440px; /* Ou a largura desejada */
+      margin: 0 auto;
+      width: 100%;
+  }
+  /* Wrapper específico para a barra de navegação */
+  .header-container-wrapper.nav-wrapper {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.3rem 1.5rem;
+      padding: 0.5rem 2rem;
+  }
+
+
+  /* --- Barra Principal (Logo, Busca, Ações) --- */
+  .header-main-row.modern {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 75px;
+    border-bottom: 1px solid var(--border-color-base);
+    padding: 0.8rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+
+  /* Logo */
+  .header-logo-container { flex-shrink: 0; display: flex; }
+  .header-logo {
+    height: 40px;
+    display: block;
+    transition: opacity 0.2s ease;
+  }
+  .header-logo-container:hover .header-logo { opacity: 0.8; }
+
+  /* Busca - Container geral da busca */
+  .header-search-container.modern {
+    flex-grow: 1;
+    max-width: 600px;
+    min-width: 200px;
+  }
+
+  /* <<< ESTILOS PARA O AutoComplete E O Input INTERNO >>> */
+
+  /* O container principal do AutoComplete (ele é um div com role="combobox") */
+  .header-search-input.modern.ant-select { /* AutoComplete herda de Select, usa ant-select */
+      width: 100%; /* Ocupa toda a largura do container pai */
+       /* Removido flex-wrap; o wrapper do input deve cuidar disso */
+  }
+
+  /* O wrapper do Input com prefixo/suffix/clear icon dentro do AutoComplete */
+  .header-search-input.modern .ant-input-affix-wrapper {
+      border-radius: 8px;
+      overflow: hidden; /* Para as bordas arredondadas funcionarem com o input interno */
+      border: 1px solid var(--border-color-base);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      height: 44px; /* Define a altura para corresponder ao input search anterior */
+      padding: 0 12px; /* Ajuste padding interno */
+       display: flex; /* Para alinhar prefixo, input e clear icon */
+       align-items: center;
+       background-color: var(--background-white) !important; /* Garante fundo branco */
+       /* Remove margens padrões do ant-input-affix-wrapper se houver */
+       margin: 0 !important;
+  }
+
+  /* Estilo de foco e hover no input wrapper */
+  .header-search-input.modern .ant-input-affix-wrapper:hover,
+  .header-search-input.modern.ant-select-focused .ant-input-affix-wrapper { /* Usa ant-select-focused para o estado de foco do AutoComplete */
+      border-color: var(--border-color-hover);
+      box-shadow: var(--shadow-focus);
+  }
+
+  /* O campo <input> real dentro do wrapper (onde o usuário digita) */
+  .header-search-input.modern .ant-input {
+    height: 42px; /* Altura ajustada para caber dentro do wrapper */
+    line-height: 42px; /* Alinha texto verticalmente */
+    border: none !important; /* Remove borda padrão do input aninhado */
+    padding: 0 !important; /* Remove padding padrão do input aninhado */
+    font-size: 0.95em;
+    flex-grow: 1; /* Input ocupa espaço restante */
+    box-sizing: border-box;
+     background-color: transparent !important; /* Garante fundo transparente */
+     color: var(--text-dark); /* Cor do texto digitado */
+  }
+
+   /* Autofill styles (important for consistent background) */
+   .header-search-input.modern input:-webkit-autofill,
+   .header-search-input.modern input:-webkit-autofill:hover,
+   .header-search-input.modern input:-webkit-autofill:focus,
+   .header-search-input.modern input:-webkit-autofill:active {
+       -webkit-box-shadow: 0 0 0 30px var(--background-white) inset !important;
+       -webkit-text-fill-color: var(--text-dark) !important;
+       caret-color: var(--text-dark) !important;
+       border-radius: 8px !important; /* Preserve wrapper border radius */
+   }
+
+
+  /* Placeholder do input */
+  .header-search-input.modern .ant-input::placeholder {
+      color: var(--text-light);
+      line-height: 42px;
+  }
+
+  /* Ícone de prefixo (lupa) */
+  .header-search-input.modern .ant-input-prefix {
+      padding-right: 8px;
+      color: var(--text-light);
+      font-size: 1.1em;
+      line-height: 1;
+  }
+  /* Garante cor do ícone no foco */
+   .header-search-input.modern.ant-select-focused .ant-input-prefix .anticon {
+       color: var(--primary-color); /* Cor verde no ícone no foco */
+   }
+
+   /* <<< REGRA PARA EVITAR LUPAS DUPLICADAS >>> */
+   /* Se houver mais de um ícone SearchOutlined (.anticon-search) dentro do prefixo, oculta todos menos o primeiro. */
+   /* Isso resolve o problema de duplicação em algumas versões/estruturas do Ant Design. */
+   .header-search-input.modern .ant-input-prefix .anticon-search:not(:first-child) {
+       display: none;
+   }
+
+
+  /* Ícone de limpar input (X) */
+  .header-search-input.modern .ant-input-clear-icon {
+      color: var(--text-light);
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+       /* Remove margin/padding se o wrapper já controla o espaço */
+       margin: 0 !important;
+       padding-left: 8px; /* Espaço à esquerda do ícone de limpar */
+  }
+  .header-search-input.modern .ant-input-clear-icon:hover { color: var(--text-medium); }
+
+
+  /* Dropdown de sugestões do AutoComplete */
+  /* O panel que contém as sugestões (aparece abaixo do input) */
+  .ant-select-dropdown.ant-select-dropdown-placement-bottomLeft {
+       border-radius: 8px;
+       box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+       border: 1px solid var(--border-color-base);
+       overflow: hidden;
+       padding: 0; /* Remove padding padrão do dropdown */
+  }
+   /* Itens individuais de sugestão */
+   .ant-select-item {
+       padding: 8px 12px !important;
+       line-height: normal;
+       /* Remove margens padrão se houver */
+       margin: 0 !important;
+   }
+   /* Estilo hover nos itens de sugestão */
+   .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+       background-color: var(--primary-color-light) !important;
+       color: var(--primary-color) !important;
+   }
+   /* Link dentro do item (para garantir cor no hover) */
+   .ant-select-item-option-active:not(.ant-select-item-option-disabled) a {
+       color: var(--primary-color) !important;
+   }
+    /* Estilo do texto normal dentro do item de sugestão (sem hover) */
+    .ant-select-item-option-content .ant-typography {
+        color: var(--text-dark); /* Cor padrão para texto da sugestão */
+    }
+    .ant-select-item-option-active .ant-select-item-option-content .ant-typography {
+         color: var(--primary-color) !important; /* Cor verde no hover */
+    }
+
+
+   /* Loading spinner no dropdown */
+   .ant-select-item-option-content .ant-spin-dot {
+       margin-right: 8px;
+   }
+   .ant-select-item-option-content .ant-spin-dot i {
+       background-color: var(--primary-color) !important;
+   }
+
+   /* Estilo para a mensagem "Nenhum resultado" / spinner no dropdown */
+    .ant-select-empty {
+        padding: 12px !important;
+        text-align: center;
+        color: var(--text-medium);
+    }
+
+  /* <<< FIM ESTILOS PARA O AutoComplete >>> */
+
+
+  /* Ações Unificadas (Desktop e Mobile) (Mantido) */
+  .header-actions-unified.modern {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 1rem;
+  }
+
+  /* Link/Dropdown Conta (Mantido) */
+  .user-account-link {
+    color: var(--text-medium);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.1s ease;
+    cursor: pointer;
+    height: 38px;
+    box-sizing: border-box;
+  }
+  .user-account-link:hover {
+    color: var(--primary-color);
+    background-color: var(--primary-color-light);
+    transform: translateY(-1px);
+  }
+  .user-account-link .anticon:not(.ant-dropdown-arrow) { font-size: 1.2em; color: var(--primary-color); }
+  .user-account-link .user-avatar.ant-avatar { background-color: rgba(0, 92, 64, 0.1); color: var(--primary-color); width: 26px; height: 26px; line-height: 26px; font-size: 0.9em;}
+  .user-account-link .user-greeting { display: none; }
+  @media (min-width: 1200px) { .user-account-link .user-greeting { display: inline; margin-left: 2px;} }
+  .user-account-link .ant-dropdown-arrow { font-size: 0.7em; color: #999; margin-left: 4px;}
+
+  /* Link/Botão Carrinho (Mantido) */
+  .cart-link.modern {
+    color: var(--text-medium); text-decoration: none; display: flex; align-items: center;
+    padding: 6px;
+    border-radius: 8px; transition: color 0.2s ease, background-color 0.2s ease, transform 0.1s ease;
+    height: 38px;
+    box-sizing: border-box;
+  }
+  .cart-link.modern:hover { color: var(--primary-color); background-color: var(--primary-color-light); transform: translateY(-1px); }
+  .cart-link.modern .cart-icon { font-size: 1.7em; color: var(--primary-color); line-height: 1; }
+  .cart-link.modern .cart-badge .ant-badge-count {
+    background-color: var(--error-color); color: var(--background-white); box-shadow: 0 0 0 1px var(--background-white);
+    font-size: 0.75em; padding: 0 4px; min-width: 16px; height: 16px; line-height: 14px;
+    transform: translate(40%, -40%);
+  }
+
+    /* Botão Menu Sanduíche (Mantido) */
+   .mobile-menu-button.ant-btn-text {
+        color: var(--primary-color);
+        font-size: 1.6em;
+        padding: 5px;
+        height: 38px;
+        border-radius: 8px;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+   .mobile-menu-button.ant-btn-text:hover { background-color: rgba(0, 92, 64, 0.05); transform: translateY(-1px); }
+
+
+  /* --- Barra de Navegação/Categorias (Mantida) --- */
+  .header-nav-row.modern {
+    background-color: var(--primary-color);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Estilo para o gatilho do dropdown (simula um link de navegação) */
+  .header-nav-link.dropdown-trigger {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 0.5rem 0.7rem;
+    border-radius: 6px;
+    transition: color 0.2s ease, background-color 0.2s ease, border-bottom-color 0.3s ease;
+    white-space: nowrap;
+    position: relative;
+    border-bottom: 2px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+    .header-nav-link.dropdown-trigger:hover { color: var(--background-white); border-bottom-color: rgba(255, 255, 255, 0.7); }
+    .header-nav-link.dropdown-trigger.active { color: var(--background-white); font-weight: 600; border-bottom-color: var(--background-white); }
+    /* Estilo para links especiais na barra nav desktop (mantido) */
+    .header-nav-link.special { color: #f5fccd; font-weight: 600; }
+    .header-nav-link.special:hover { color: #fff; border-bottom-color: #f5fccd; }
+    .header-nav-link.special.active { border-bottom-color: #f5fccd; }
+
+
+  /* Estilos para o Menu Dropdown de Categoria (Mantido) */
+  .category-dropdown-menu.ant-menu {
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    border: 1px solid #f0f0f0;
+    padding: 0;
+  }
+  .category-dropdown-menu.ant-menu .ant-menu-item {
+      padding: 8px 16px;
+      margin: 0 !important;
+      font-size: 0.95em;
+      line-height: normal;
+  }
+  .category-dropdown-menu.ant-menu .ant-menu-item a { color: #333; display: block; width: 100%; }
+  .category-dropdown-menu.ant-menu .ant-menu-item-selected,
+  .category-dropdown-menu.ant-menu .ant-menu-item:hover {
+      background-color: var(--primary-color-light) !important;
+      color: var(--primary-color) !important;
+  }
+  .category-dropdown-menu.ant-menu .ant-menu-item-selected a,
+  .category-dropdown-menu.ant-menu .ant-menu-item:hover a {
+       color: var(--primary-color) !important;
+  }
+   .category-dropdown-menu.ant-menu .ant-menu-item-divider { margin: 4px 0; background-color: #f0f0f0; }
+
+
+  /* --- Responsividade --- */
+
+  @media (max-width: 1024px) {
+    .header-container-wrapper { padding: 0; }
+    .header-main-row.modern {
+        padding: 0.8rem 1.5rem;
+        gap: 1rem;
+        min-height: 70px;
+        flex-wrap: wrap;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+    .header-search-container.modern {
+        order: 3;
+        flex-basis: 100%;
+        max-width: 100%;
+        margin-top: 0.6rem;
+    }
+     .header-logo-container { flex-grow: 1; }
+    .header-actions-unified.modern {
+        gap: 0.8rem;
+        flex-shrink: 0;
+    }
+    .header-nav-row.modern { display: none; }
+    .user-account-link { padding: 6px 8px; }
+    .user-account-link .user-greeting { display: none !important; }
+    .user-account-link.ant-btn-text { width: 38px; justify-content: center; padding: 0; }
+    .user-account-link.ant-btn-text .user-avatar { margin-right: 0; }
+    .user-account-link.ant-btn-text .ant-dropdown-arrow { display: none; }
+  }
+
+  @media (max-width: 576px) {
+      .header-container-wrapper { padding: 0; }
+      .header-main-row.modern { padding: 0.7rem 1rem; min-height: 60px; gap: 0.8rem;}
+      .header-search-container.modern { margin-top: 0.5rem; }
+      .header-logo { height: 32px; }
+      .cart-link.modern, .mobile-menu-button.ant-btn-text {
+         padding: 4px;
+         height: 34px;
+      }
+      .cart-link.modern .cart-icon, .mobile-menu-button.ant-btn-text .anticon { font-size: 1.4em; }
+      .user-account-link {
+         padding: 4px 6px;
+         font-size: 0.85em;
+         height: 34px;
+         gap: 4px;
+      }
+       .user-account-link .user-avatar.ant-avatar { width: 24px; height: 24px; line-height: 24px; font-size: 0.8em;}
+       .user-account-link .anticon:not(.ant-dropdown-arrow) { font-size: 1.1em; }
+      .user-account-link.ant-btn-text { width: 34px; padding: 0; }
+      .user-account-link.ant-btn-text .user-avatar { margin-right: 0; }
+  }
+
+
+  /* Drawer Mobile (Mantido) */
+  .mobile-menu-drawer.modern .ant-drawer-header { background-color: var(--background-white); border-bottom: 1px solid var(--border-color-base); padding: 10px 16px; }
+   .mobile-menu-drawer.modern .ant-drawer-header-title {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       width: 100%;
+   }
+   .mobile-menu-drawer.modern .ant-drawer-header-title > a {
+        flex-shrink: 0;
+        display: flex;
+   }
+   .mobile-menu-drawer.modern .ant-drawer-close {
+       color: var(--text-medium);
+       font-size: 1.1em;
+       position: static;
+       padding: 0;
+       margin: 0;
+   }
+  .mobile-menu-drawer.modern .ant-drawer-body { padding: 0; background-color: var(--background-white); }
+
+
+  /* Estilos para o Menu dentro do Drawer (Mantido) */
+  .mobile-drawer-menu.ant-menu {
+      border: none;
+      padding: 1rem 0;
+      font-size: 1.05em;
+  }
+
+  .mobile-drawer-menu.ant-menu .ant-menu-item,
+  .mobile-drawer-menu.ant-menu .ant-menu-submenu > .ant-menu-submenu-title {
+      padding: 12px 20px !important;
+      margin: 0 !important;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      /* Removido border-radius: 0; para consistência */
+  }
+
+  .mobile-drawer-menu.ant-menu .ant-menu-item a,
+  .mobile-drawer-menu.ant-menu .ant-menu-submenu > .ant-menu-submenu-title .mobile-nav-link {
+       display: flex;
+       align-items: center;
+       gap: 12px;
+       color: inherit;
+       text-decoration: none;
+       width: 100%;
+       box-sizing: border-box;
+  }
+  .mobile-drawer-menu.ant-menu .ant-menu-item .anticon,
+  .mobile-drawer-menu.ant-menu .ant-menu-submenu > .ant-menu-submenu-title .anticon {
+      color: var(--primary-color);
+      font-size: 1.2em;
+  }
+
+  /* Estilos de Hover/Active para itens e títulos de submenu no Drawer */
+  .mobile-drawer-menu.ant-menu .ant-menu-item:hover,
+  .mobile-drawer-menu.ant-menu .ant-menu-item-selected,
+  .mobile-drawer-menu.ant-menu .ant-menu-submenu > .ant-menu-submenu-title:hover,
+  .mobile-drawer-menu.ant-menu .ant-menu-submenu-selected > .ant-menu-submenu-title {
+      background-color: var(--primary-color-light) !important;
+      color: var(--primary-color) !important;
+  }
+    .mobile-drawer-menu.ant-menu .ant-menu-submenu.active-parent > .ant-menu-submenu-title {
+        background-color: var(--primary-color-light);
+        color: var(--primary-color);
+    }
+
+
+  /* Estilos específicos para o link "Todas as Categorias" no Drawer */
+  .mobile-drawer-menu.ant-menu .ant-menu-item.all-cats { font-weight: 600; }
+
+  /* Estilos para Sub-itens (dentro de SubMenus) no Drawer */
+  .mobile-drawer-menu.ant-menu .ant-menu-sub.ant-menu-inline > .ant-menu-item,
+  .mobile-drawer-menu.ant-menu .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title { /* Corrigido seletor para .ant-menu-submenu-title */
+      padding-left: 46px !important;
+      font-size: 1em;
+      font-weight: 400;
+  }
+    /* Remove o ícone nos sub-itens se não for desejado */
+   .mobile-drawer-menu.ant-menu .ant-menu-sub.ant-menu-inline > .ant-menu-item .anticon,
+   .mobile-drawer-menu.ant-menu .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title .anticon { /* Corrigido seletor */
+       display: none;
+   }
+
+    /* Estilo específico para o link "Ver Todos" dentro do submenu */
+    .mobile-drawer-menu.ant-menu .ant-menu-item.sub-link.all { font-weight: 500; color: var(--primary-color); }
+
+
+  /* Estilos para links especiais no Drawer */
+  .mobile-drawer-menu.ant-menu .ant-menu-item.special { color: var(--primary-color); font-weight: 600; }
+  .mobile-drawer-menu.ant-menu .ant-menu-item.special .anticon { color: var(--primary-color); }
+
+  /* Estilos para link Sair no Drawer */
+  .mobile-drawer-menu.ant-menu .ant-menu-item.logout { color: var(--error-color); font-weight: bold; }
+  .mobile-drawer-menu.ant-menu .ant-menu-item.logout .anticon { color: var(--error-color); }
+  .mobile-drawer-menu.ant-menu .ant-menu-item.logout .ant-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: inherit;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    text-align: left;
+  }
+   .mobile-drawer-menu.ant-menu .ant-menu-item.logout .ant-btn:hover { background-color: transparent !important; color: inherit !important; }
+
+
+  /* Estilos para link Login/Conta principal no Drawer */
+  .mobile-drawer-menu.ant-menu .ant-menu-item.account.main-account {
+      background-color: var(--background-light-grey);
+      border-bottom: 1px solid #eee;
+      margin-bottom: 10px;
+      font-weight: 600;
+  }
+   .mobile-drawer-menu.ant-menu .ant-menu-item.login { color: var(--primary-color); font-weight: bold; }
+   .mobile-drawer-menu.ant-menu .ant-menu-item.login .anticon { color: var(--primary-color); }
+
+
+  /* Estilos para Divisores no Drawer */
+  .mobile-drawer-divider.ant-divider { border-color: rgba(0, 92, 64, 0.15) !important; margin: 12px 0;}
+  .mobile-drawer-divider-submenu.ant-divider { margin: 8px 0; border-color: rgba(0, 92, 64, 0.08) !important;}
+
+
+  /* Dropdown Usuário (Estilos existentes, mantidos) */
+  .user-dropdown-menu.ant-menu { border-radius: 8px; box-shadow: 0 6px 16px rgba(0,0,0,0.1); border: 1px solid #f0f0f0;}
+  .user-dropdown-menu .ant-menu-item { padding: 8px 16px; margin: 0 !important; font-size: 0.95em; }
+  .user-dropdown-menu .ant-menu-item a { color: var(--text-dark); }
+  .user-dropdown-menu .ant-menu-item-selected, .user-dropdown-menu .ant-menu-item:hover { background-color: var(--primary-color-light) !important; color: var(--primary-color) !important; }
+  .user-dropdown-menu .ant-menu-item-selected a, .user-dropdown-menu .ant-menu-item:hover a { color: var(--primary-color) !important; }
+  .user-dropdown-menu .ant-menu-item-danger,
+  .user-dropdown-menu .ant-menu-item-danger:hover { color: var(--error-color) !important; background-color: rgba(225, 89, 71, 0.05) !important; }
+  .user-dropdown-menu .ant-menu-item-divider { margin: 4px 0; background-color: #f0f0f0; }

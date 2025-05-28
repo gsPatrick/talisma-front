@@ -1,0 +1,158 @@
+/* src/componentsAgro/ProductCard.css */
+
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Ocupa espaço no grid */
+    height: 100%; /* Garante altura consistente */
+  }
+  
+  .product-card-agro.ant-card {
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    height: 100%; /* Card interno ocupa todo o link */
+    display: flex;
+    flex-direction: column; /* Empilha cover e body */
+    background-color: #fff;
+    overflow: hidden; /* Garante que a tag de desconto não vaze */
+  }
+  
+  .product-card-agro.ant-card-hoverable:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 92, 64, 0.1);
+    border-color: rgba(0, 92, 64, 0.3);
+  }
+  
+  /* Wrapper da Imagem */
+  .product-card-image-wrapper {
+    position: relative; /* Para posicionar a tag de desconto */
+    overflow: hidden; /* Garante que a imagem não vaze */
+    aspect-ratio: 1 / 1; /* Força imagem quadrada */
+    /* Ou defina uma altura fixa: height: 200px; */
+    background-color: #f5f5f5; /* Fundo placeholder */
+  }
+  
+  .product-card-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Use 'contain' para ver o produto inteiro, ou 'cover' para preencher */
+    transition: transform 0.4s ease; /* Efeito de zoom na imagem */
+  }
+  .product-card-agro.ant-card-hoverable:hover .product-card-image {
+    transform: scale(1.05);
+  }
+  
+  /* Tag de Desconto */
+  .discount-tag.ant-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #e15947; /* Vermelho para desconto */
+      color: #fff;
+      border-color: #e15947;
+      font-weight: bold;
+      font-size: 0.75em;
+      padding: 2px 6px;
+      border-radius: 4px;
+      z-index: 1;
+  }
+  
+  /* Corpo do Card */
+  .product-card-agro .ant-card-body {
+    padding: 1rem !important; /* Padding interno */
+    flex-grow: 1; /* Ocupa espaço vertical */
+    display: flex;
+    flex-direction: column; /* Empilha título, preço, botão */
+  }
+  
+  .product-card-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+  }
+  
+  /* Título do Produto */
+  .product-card-title.ant-typography {
+    color: #333 !important;
+    font-weight: 600;
+    font-size: 0.95em;
+    line-height: 1.4;
+    margin-bottom: 0.5rem !important;
+    /* Limita a 2 linhas com reticências */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    min-height: 2.8em; /* Reserva espaço para 2 linhas */
+  }
+  
+  /* Avaliação (estrelas) */
+  .product-card-rating.ant-rate {
+      font-size: 0.9em; /* Tamanho das estrelas */
+      margin-bottom: 0.6rem;
+      color: #faad14; /* Cor das estrelas */
+  }
+  .product-card-rating .ant-rate-star {
+      margin-inline-end: 4px !important; /* Espaço entre estrelas */
+  }
+  
+  /* Seção de Preço */
+  .product-card-price-section {
+    margin-bottom: 1rem; /* Espaço antes da descrição ou botão */
+    display: flex;
+    align-items: baseline; /* Alinha preços pela base */
+    flex-wrap: wrap; /* Permite quebra */
+    gap: 0.5rem; /* Espaço entre preços */
+  }
+  
+  .original-price.ant-typography {
+    color: #888 !important; /* Cinza para preço original */
+    font-size: 0.85em;
+    text-decoration: line-through !important;
+  }
+  
+  .current-price.ant-typography {
+    color: #005C40 !important; /* Verde para preço atual */
+    font-size: 1.2em; /* Preço maior */
+    font-weight: 700;
+    line-height: 1;
+  }
+  
+  /* Descrição Curta (Opcional) */
+  /* .product-card-description { ... } */
+  
+  /* Botão Adicionar ao Carrinho */
+  .product-card-add-button.ant-btn-primary {
+    margin-top: auto; /* <<< EMPURRA O BOTÃO PARA BAIXO */
+    background-color: #005C40 !important;
+    border-color: #005C40 !important;
+    color: #fff !important;
+    font-weight: 500;
+    font-size: 0.9em;
+    border-radius: 6px;
+    height: 38px !important; /* Altura botão */
+    padding: 0 15px !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  .product-card-add-button.ant-btn-primary .anticon {
+      margin-right: 6px;
+  }
+  
+  .product-card-add-button.ant-btn-primary:hover {
+    background-color: #007a54 !important;
+    border-color: #007a54 !important;
+  }
+  
+  
+  /* Responsividade */
+  @media (max-width: 576px) {
+      .product-card-agro .ant-card-body { padding: 0.8rem !important; }
+      .product-card-title.ant-typography { font-size: 0.9em; min-height: 2.6em; }
+      .product-card-rating.ant-rate { font-size: 0.8em; margin-bottom: 0.5rem; }
+      .product-card-price-section { margin-bottom: 0.8rem; }
+      .current-price.ant-typography { font-size: 1.1em; }
+      .product-card-add-button.ant-btn { height: 36px !important; font-size: 0.85em; }
+  }

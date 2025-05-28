@@ -1,0 +1,231 @@
+/* src/pages/ProductListPage/ProductListPage.css */
+
+/* --- Layout Geral --- */
+.product-list-layout {
+    background-color: #f9fafb; /* Fundo claro da página */
+    color: #333; /* Cor de texto padrão escura */
+  }
+  .product-list-inner-layout {
+      max-width: 1600px; /* Largura máxima do conteúdo */
+      margin: 0 auto; /* Centraliza */
+      background-color: transparent !important; /* Layout interno transparente */
+      padding: 2rem 1.5rem; /* Padding geral */
+      width: 100%; /* Garante que ocupe largura */
+  }
+  
+  /* --- Barra Lateral de Filtros (Sider) --- */
+  .product-list-sider.ant-layout-sider {
+    background: #ffffff !important; /* Fundo branco */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    padding: 16px 0; /* Padding vertical interno, sem horizontal */
+    height: fit-content;
+    max-height: calc(100vh - 150px); /* Ajuste conforme header/footer */
+    overflow-y: auto;
+    position: sticky;
+    top: 90px; /* Ajuste conforme altura do header */
+  }
+  
+  /* Estilização scrollbar (Webkit) */
+  .product-list-sider.ant-layout-sider::-webkit-scrollbar { width: 5px; }
+  .product-list-sider.ant-layout-sider::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 3px;}
+  .product-list-sider.ant-layout-sider::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px;}
+  .product-list-sider.ant-layout-sider::-webkit-scrollbar-thumb:hover { background: #aaa; }
+  
+  /* Seção dentro do Sider */
+  .filter-section {
+      padding: 12px 0; /* Aumentado padding vertical */
+  }
+  
+  /* Título dentro de cada seção de filtro */
+  .filter-title.ant-typography {
+      color: #333 !important;
+      font-weight: 600;
+      font-size: 1.05em !important; /* Ligeiramente maior */
+      margin-bottom: 14px !important; /* Mais espaço abaixo */
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+  }
+  .filter-title .anticon {
+      color: #005C40; /* Verde */
+      font-size: 1.2em; /* Ícone maior */
+  }
+  
+  /* Menu de Categorias */
+  .category-filter-menu.ant-menu-inline {
+      border-right: none !important;
+      background-color: transparent !important;
+      width: 100% !important; /* Garante largura total */
+  }
+  .category-filter-menu .ant-menu-item,
+  .category-filter-menu .ant-menu-submenu-title {
+      margin: 0 !important;
+      padding: 9px 16px !important; /* Ajuste fino padding */
+      height: auto !important;
+      line-height: 1.4 !important;
+      font-size: 0.9em;
+      color: #444 !important;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      border-radius: 0 !important;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+  }
+  .category-filter-menu .ant-menu-item .anticon,
+  .category-filter-menu .ant-menu-submenu-title .anticon {
+      font-size: 1.1em;
+      color: #777;
+  }
+  /* Item "Todas as categorias" */
+  .category-filter-menu .ant-menu-item[key="all"] {
+      font-weight: 500;
+  }
+  /* Submenu */
+  .category-filter-menu .ant-menu-submenu-title {
+      font-weight: 500;
+      padding-right: 30px !important; /* Garante espaço para seta */
+  }
+  .category-filter-menu .ant-menu-submenu-arrow { color: #888 !important; }
+  /* Subitens (dentro do submenu) */
+  .category-filter-menu .ant-menu-sub.ant-menu-inline {
+       background-color: #fdfdfd !important;
+       padding: 0 !important;
+       margin: 2px 0 6px 0 !important; /* Ajuste margem */
+       border-left: 2px solid #e6f4ea; /* Linha lateral verde clara */
+  }
+  /* Item de subcategoria (contém o Checkbox) */
+  .category-filter-menu .ant-menu-sub .ant-menu-item.subcategory-item {
+      padding: 0 !important;
+      height: auto !important;
+      line-height: normal !important;
+      margin: 0 !important;
+      font-size: 0.9em; /* Herda tamanho do pai */
+  }
+  /* Checkbox dentro do Subitem */
+  .category-filter-menu .ant-menu-sub .ant-menu-item .ant-checkbox-wrapper {
+      width: 100%;
+      padding: 8px 16px 8px 28px !important; /* Menos indentação que antes */
+      font-size: inherit;
+      color: #555 !important; /* Cor texto subcategoria */
+      transition: background-color 0.2s ease, color 0.2s ease;
+      margin: 0 !important;
+  }
+  .category-filter-menu .ant-menu-sub .ant-menu-item .ant-checkbox-wrapper:hover {
+      background-color: #e6f4ea !important;
+      color: #005C40 !important;
+  }
+  .category-filter-menu .ant-menu-sub .ant-menu-item .ant-checkbox-inner { border-color: #ccc; }
+  .category-filter-menu .ant-menu-sub .ant-menu-item .ant-checkbox-checked .ant-checkbox-inner { background-color: #005C40; border-color: #005C40; }
+  .category-filter-menu .ant-menu-sub .ant-menu-item .ant-checkbox-wrapper:hover .ant-checkbox-inner,
+  .category-filter-menu .ant-menu-sub .ant-menu-item .ant-checkbox-input:focus + .ant-checkbox-inner { border-color: #005C40; }
+  /* Remove seleção visual do Menu.Item */
+  .category-filter-menu .ant-menu-sub .ant-menu-item-selected { background-color: transparent !important; }
+  
+  /* Hover e Selecionado nos itens principais e submenus */
+  .category-filter-menu .ant-menu-item:not(.subcategory-item):hover,
+  .category-filter-menu .ant-menu-submenu-title:hover {
+      background-color: #e6f4ea !important;
+      color: #005C40 !important;
+  }
+  .category-filter-menu .ant-menu-item-selected:not(.subcategory-item) {
+      background-color: #e6f4ea !important;
+      color: #005C40 !important;
+      font-weight: 600;
+  }
+  .category-filter-menu .ant-menu-item-selected::after { border-right: none !important; }
+  /* Quando o submenu está aberto ou selecionado */
+  .category-filter-menu .ant-menu-submenu-selected .ant-menu-submenu-title,
+  .category-filter-menu .ant-menu-submenu-open .ant-menu-submenu-title {
+      color: #005C40 !important;
+      font-weight: 600;
+  }
+  
+  /* Divider entre filtros */
+  .filter-divider.ant-divider-horizontal { margin: 16px 0 !important; border-color: #eee !important; }
+  
+  /* Filtro de Preço (Slider) */
+  .price-slider.ant-slider { margin: 10px 6px; }
+  .price-slider .ant-slider-track { background-color: #005C40 !important; }
+  .price-slider .ant-slider-handle { border-color: #005C40 !important; }
+  .price-slider .ant-slider-handle:focus { box-shadow: none !important; } /* Remove foco padrão */
+  .price-slider .ant-slider-handle::after { box-shadow: 0 0 0 3px rgba(0, 92, 64, 0.15) !important; } /* Sombra no foco customizada */
+  .price-range-display {
+      display: flex; justify-content: space-between; margin-top: 8px; padding: 0 6px;
+      font-size: 0.9em; color: #555 !important;
+  }
+  .price-range-display .ant-typography { color: inherit !important; }
+  
+  /* --- Fim Sider --- */
+  
+  
+  /* --- Conteúdo Principal (Produtos e Ordenação) --- */
+  .product-list-items-content {
+    padding-left: 24px !important;
+    background-color: transparent !important;
+  }
+  @media (max-width: 991px) { .product-list-items-content { padding-left: 0 !important; } }
+  
+  /* Ordenação */
+  .product-list-items-content .ant-row-end { margin-bottom: 1.5rem; align-items: center;} /* Alinha verticalmente */
+  .product-list-items-content .ant-typography-strong { color: #555; font-size: 0.9em; margin-right: 8px; }
+  .product-list-items-content .ant-select { width: 200px; } /* Largura fixa para select */
+  .product-list-items-content .ant-select-selector { border-radius: 6px !important; border-color: #ccc !important; height: 38px !important; } /* Altura select */
+  .product-list-items-content .ant-select .ant-select-selection-item,
+  .product-list-items-content .ant-select .ant-select-selection-placeholder { line-height: 36px !important; font-size: 0.9em; color: #333 !important; } /* Alinha texto select */
+  .product-list-items-content .ant-select-focused .ant-select-selector,
+  .product-list-items-content .ant-select:hover .ant-select-selector { border-color: #005C40 !important; box-shadow: 0 0 0 2px rgba(0, 92, 64, 0.1) !important; }
+  .product-list-items-content .ant-select .ant-select-arrow { color: #888; }
+  .product-list-items-content .ant-select .ant-select-selection-item .anticon { color: #005C40; margin-right: 4px; vertical-align: middle;}
+  
+  /* Grid de Produtos */
+  .product-grid.ant-row {}
+  .product-grid .ant-col { display: flex; } /* Para altura 100% do card funcionar */
+  .product-grid .product-card-link { width: 100%; height: 100%; } /* Garante que link e card preencham */
+  
+  /* Mensagem de Vazio */
+  .ant-empty { margin-top: 40px; }
+  .ant-empty-description, .ant-empty-description .ant-typography { color: #888 !important; }
+  
+  /* Paginação */
+  .ant-pagination { /* Estilos mantidos */ }
+  .ant-pagination-item a, .ant-pagination-item-link { color: #555 !important; }
+  .ant-pagination-item-active { background-color: #e6f4ea !important; border-color: #005C40 !important; }
+  .ant-pagination-item-active a { color: #005C40 !important; }
+  .ant-pagination-item:hover { border-color: #005C40 !important; }
+  .ant-pagination-item:hover a { color: #005C40 !important; }
+  .ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination-next:hover .ant-pagination-item-link { border-color: #005C40 !important; color: #005C40 !important; }
+  .ant-pagination-options .ant-select-selector { border-radius: 6px !important; }
+  .ant-pagination .ant-pagination-total-text { font-size: 0.9em; color: #555; margin-right: 12px;} /* Estilo do total */
+  
+  
+  /* Footer Placeholder */
+  .placeholder-footer { /* ... */ }
+  
+  
+  /* --- Responsividade Específica da Página --- */
+  @media (max-width: 991px) { /* Breakpoint LG do Sider */
+      .product-list-inner-layout { padding: 1.5rem 1rem; }
+      .product-list-items-content .ant-row-end { justify-content: flex-start; margin-bottom: 1rem;}
+  }
+  
+  @media (max-width: 768px) {
+      /* Grid de produtos com 2 colunas */
+      .product-grid .ant-col[class*="ant-col-xs-"],
+      .product-grid .ant-col[class*="ant-col-sm-"] { /* Aplica a sm e xs */
+          flex: 0 0 50%;
+          max-width: 50%;
+      }
+  }
+  
+  @media (max-width: 480px) {
+      /* Grid de produtos (mantendo 2 colunas ou mude para 1) */
+      .product-grid .ant-col[class*="ant-col-xs-"] {
+         /* flex: 0 0 100%; max-width: 100%; */ /* Descomente para 1 coluna */
+      }
+      /* Ajusta ordenação no mobile */
+       .product-list-items-content .ant-row-end { justify-content: center;}
+       .product-list-items-content .ant-space { width: 100%; justify-content: center; }
+       .product-list-items-content .ant-select { width: 100% !important; max-width: 250px; }
+  }

@@ -1,0 +1,191 @@
+/* src/pages/MyAccountPage/MyAccountPage.css */
+
+/* Variáveis CSS (se não forem globais) */
+:root {
+    --primary-green: #005C40;
+    --primary-green-light: #e6f4ea;
+    --dark-text: #333;
+    --medium-text: #555;
+    --light-text: #777;
+    --border-color: #f0f0f0;
+    --background-grey: #f9fafb; /* Fundo claro da página */
+    --card-background: #ffffff;
+    --shadow-subtle: 0 1px 4px rgba(0, 0, 0, 0.06);
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Layout Geral (Herdado do ecommerce-layout) */
+.my-account-layout {
+    background-color: var(--background-grey);
+}
+
+/* Loading Page (Herdado ou defina aqui) */
+.ecommerce-loading-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--background-grey);
+}
+.ecommerce-loading-page .ant-spin-dot i {
+    background-color: var(--primary-green) !important;
+}
+
+
+/* Conteúdo Principal */
+.my-account-content.ecommerce-main-content {
+    padding: 2.5rem 1.5rem !important; /* Padding padrão */
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto;
+    width: 100%;
+    min-height: 60vh; /* Altura mínima para spinner */
+}
+
+/* Título e Subtítulo da Página */
+.my-account-title.ant-typography {
+    text-align: center;
+    color: var(--dark-text) !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 600;
+    font-size: 2em;
+}
+.my-account-subtitle.ant-typography {
+    text-align: center;
+    color: var(--medium-text) !important;
+    margin-bottom: 2.5rem !important;
+}
+
+
+/* Cards da Conta */
+.my-account-card.ant-card {
+    border-radius: 10px !important;
+    border: 1px solid #e8e8e8 !important;
+    box-shadow: var(--shadow-card);
+    margin-bottom: 1.5rem; /* Espaço entre cards */
+}
+.my-account-card .ant-card-head {
+    border-bottom: 1px solid var(--border-color) !important;
+    min-height: 52px;
+}
+.my-account-card .ant-card-head-title {
+    color: var(--dark-text) !important;
+    font-weight: 600;
+    font-size: 1.15em;
+}
+.my-account-card .ant-card-head-title .anticon {
+    color: var(--primary-green); /* Cor do ícone no título do card */
+    margin-right: 8px;
+}
+
+.my-account-card .ant-card-extra .ant-btn-text {
+    color: var(--medium-text);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.my-account-card .ant-card-extra .ant-btn-text:hover {
+    color: var(--primary-green);
+}
+.my-account-card .ant-card-extra .ant-btn-text .anticon {
+    margin-right: 4px;
+}
+
+
+.my-account-card .ant-card-body {
+    padding: 20px 24px !important;
+    color: var(--dark-text);
+    font-size: 1em;
+}
+
+/* Estilos para os textos dentro dos cards (Nome, Email, Endereço) */
+.my-account-card .ant-space .ant-typography {
+    color: var(--medium-text); /* Cor padrão para os detalhes */
+}
+.my-account-card .ant-space .ant-typography-strong {
+    color: var(--dark-text); /* Cor mais escura para o label (Nome:, Email:) */
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+/* Divider dentro do card */
+.my-account-card .ant-divider-dashed {
+    margin: 16px 0 !important;
+    border-color: #eee !important;
+}
+
+/* Botão Alterar Senha */
+.my-account-card .ant-btn-link {
+    color: var(--primary-green);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.my-account-card .ant-btn-link:hover {
+    color: #004d35;
+}
+
+/* Card Meus Pedidos */
+.orders-card.my-account-card {
+    margin-top: 2.5rem; /* Mais espaço acima */
+}
+.orders-card.my-account-card .ant-card-body {
+     padding: 20px 24px !important;
+}
+.orders-card.my-account-card .ant-card-body .ant-space {
+    width: 100%; /* Garante que o espaço ocupe a largura total */
+    justify-content: space-between; /* Distribui título e botão */
+    align-items: center;
+}
+.orders-card.my-account-card .ant-card-body .ant-typography-title {
+    font-size: 1.4em !important; /* Tamanho menor para título dentro do body */
+    margin: 0 !important;
+    color: var(--dark-text) !important;
+}
+.orders-card.my-account-card .ant-card-body .ant-typography-title .anticon {
+    color: var(--primary-green);
+    margin-right: 8px;
+}
+
+/* Estilo do botão "Ver Todos os Pedidos" */
+.orders-card.my-account-card .ant-btn-primary {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+    font-weight: 600;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.orders-card.my-account-card .ant-btn-primary:hover {
+    background-color: #004d35;
+    border-color: #004d35;
+}
+
+
+/* Footer Placeholder (Herdado) */
+/* .placeholder-footer { ... } */
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .my-account-content.ecommerce-main-content {
+        padding: 1.5rem 1rem !important;
+    }
+    .my-account-title.ant-typography { font-size: 1.8em; }
+    .my-account-subtitle.ant-typography { font-size: 1em; margin-bottom: 2rem !important;}
+     .my-account-card.ant-card .ant-card-body { padding: 16px !important;}
+     .my-account-card .ant-card-head-title { font-size: 1.1em; }
+      /* Empilha colunas */
+    .my-account-content .ant-row > .ant-col {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+     /* Ajusta espaço entre cards empilhados */
+     .my-account-card.ant-card { margin-bottom: 1rem; }
+     .orders-card.my-account-card { margin-top: 1.5rem;}
+}
+
+@media (max-width: 576px) {
+    .my-account-content.ecommerce-main-content { padding: 1rem 0.5rem !important; }
+    .my-account-title.ant-typography { font-size: 1.6em; }
+    .my-account-card.ant-card .ant-card-body { padding: 12px !important; }
+    .my-account-card .ant-card-head-title { font-size: 1em; }
+    .orders-card.my-account-card .ant-card-body .ant-space { flex-direction: column; align-items: stretch; gap: 12px;} /* Empilha título e botão */
+     .orders-card.my-account-card .ant-card-body .ant-typography-title { text-align: center; font-size: 1.2em !important;}
+     .orders-card.my-account-card .ant-btn-primary { width: 100%; text-align: center;}
+}

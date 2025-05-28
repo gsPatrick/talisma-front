@@ -1,0 +1,302 @@
+/* src/pages/AboutUsPage/AboutUsPage.css */
+
+.about-us-layout {
+    background-color: #ffffff; /* Fundo branco */
+    min-height: 100vh; /* Ocupa pelo menos a altura da viewport */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Ajuste para o Ant Design Layout Content */
+  .ecommerce-main-content.about-us-content {
+    flex-grow: 1; /* Permite que o conteúdo principal cresça */
+    padding: 0 !important; /* Remove padding padrão do Content */
+    max-width: none !important; /* Permite que seções ocupem a largura total (controlada pelas seções internas) */
+    margin: 0 auto !important; /* Centraliza o conteúdo, mas o padding é na seção */
+    width: 100%; /* Ocupa 100% da largura disponível */
+  }
+
+  /* --- Seção Hero --- */
+  .about-hero {
+    position: relative;
+    padding: 5rem 2rem;
+    min-height: 400px; /* Altura hero slightly increased */
+    background-size: cover;
+    background-position: center; /* Centraliza imagem */
+    background-repeat: no-repeat;
+    background-color: #005C40; /* Cor de fallback */
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column; /* Empilha título e subtítulo */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box; /* Inclui padding na altura/largura */
+  }
+  .about-hero-overlay {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Gradient mais suave ou cor sólida semi-transparente */
+    background: rgba(0, 92, 64, 0.7); /* Overlay verde semi-transparente */
+    z-index: 1;
+  }
+  .about-hero-title.ant-typography,
+  .about-hero-subtitle.ant-typography {
+    position: relative;
+    z-index: 2;
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  }
+  .about-hero-title { font-size: 3em; font-weight: 700; margin-bottom: 0.8rem !important; } /* Tamanho ligeiramente maior, margem maior */
+  .about-hero-subtitle { font-size: 1.3em; max-width: 700px; opacity: 0.9; } /* Tamanho ligeiramente maior, max-width maior */
+
+
+  /* --- Estilos Gerais das Seções --- */
+  .about-section {
+      padding: 5rem 2rem; /* Espaçamento vertical aumentado */
+      max-width: 1200px; /* Limita largura do conteúdo da seção (maior) */
+      margin: 0 auto; /* Centraliza */
+      border-bottom: 1px solid #f0f0f0; /* Linha sutil entre seções */
+      box-sizing: border-box;
+      width: 100%; /* Garante que a seção ocupe a largura total para o padding */
+  }
+  .about-section:last-of-type {
+      border-bottom: none; /* Remove borda da última seção */
+  }
+  
+  /* Estilo para seções com fundo alternado */
+  .about-section:nth-of-type(even) { /* Aplica a cada segunda seção */
+      background-color: #f8f9fa; /* Fundo levemente diferente */
+  }
+
+  .section-title.ant-typography {
+      color: #005C40 !important; /* Título da seção em verde */
+      font-weight: 700; /* Bold */
+      margin-bottom: 1.5rem !important;
+      font-size: 2em; /* Tamanho aumentado */
+      display: flex;
+      align-items: center;
+      gap: 12px; /* Espaço entre ícone e título aumentado */
+  }
+  .section-title.center {
+      justify-content: center; /* Centraliza título e ícone */
+      margin-bottom: 3rem !important; /* Margem maior quando centralizado */
+  }
+  .section-title .anticon {
+      font-size: 1em; /* Tamanho do ícone no título - relativo ao texto */
+      /* Removida a cor para herdar do título */
+  }
+
+  .section-text {
+      color: #444; /* Texto da seção */
+      font-size: 1.05em;
+      line-height: 1.8; /* Melhor espaçamento */
+  }
+
+  /* Estilo para imagens dentro das seções */
+  .about-section-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block; /* Remove espaço extra */
+  }
+  .about-section-image:hover {
+      transform: scale(1.02); /* Efeito hover sutil */
+  }
+
+  /* --- Seção História e Missão --- */
+  /* .history-mission-section usa estilos gerais */
+  /* .history-image styles merged into .about-section-image */
+
+  /* Animação para blocos de texto/imagem */
+  /* Mantidas as animações existentes */
+  @keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes slideInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+  /* Nova animação para slide up (usada em mobile) */
+  @keyframes slideInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+  .animated-text-block { animation: slideInLeft 0.8s ease-out forwards; opacity: 0;} /* Added opacity and forwards */
+  .animated-image { animation: slideInRight 0.8s ease-out forwards; opacity: 0;} /* Added opacity and forwards */
+
+  /* Delay para animações na segunda coluna em desktop */
+  .history-mission-section .ant-row > .ant-col:last-child .animated-image { animation-delay: 0.2s; }
+  .why-choose-us-section .ant-row > .ant-col:first-child .animated-image { animation-delay: 0.2s; }
+
+
+  /* --- Seção Valores --- */
+  /* .values-section uses alternate background via :nth-of-type(even) */
+  .value-item {
+      text-align: center;
+      padding: 1.5rem;
+      /* Ajuste para grid do AntD */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  .value-icon {
+      font-size: 3em; /* Tamanho aumentado */
+      color: #005C40;
+      margin-bottom: 1rem;
+      display: block; /* Centraliza */
+      /* Removida centralização manual */
+  }
+  .value-item .ant-typography-title {
+      font-size: 1.3em !important; /* Tamanho aumentado */
+      font-weight: 700; /* Bold */
+      margin-bottom: 0.5rem !important;
+      color: #333 !important;
+  }
+  .value-item .ant-typography-paragraph {
+      font-size: 1em; /* Tamanho ligeiramente aumentado */
+      color: #555 !important;
+      line-height: 1.6;
+  }
+
+  /* --- Nova Seção: Por que nos Escolher? --- */
+  /* .why-choose-us-section uses styles from .about-section */
+   .why-choose-us-section ul {
+       list-style: none; /* Remove bullet points padrão */
+       padding-left: 0; /* Remove padding padrão da lista */
+       margin-top: 1.5rem;
+   }
+   .why-choose-us-section li {
+       margin-bottom: 12px; /* Espaço entre itens da lista */
+       font-size: 1.05em;
+       color: #444;
+       line-height: 1.6;
+       display: flex;
+       align-items: flex-start; /* Alinha ícone e texto no topo */
+   }
+    .why-choose-us-section li .anticon {
+        /* Cor e margem já definidas inline no JSX, pode remover se quiser controlar aqui */
+    }
+
+  /* --- Nova Seção: Nossa Equipe --- */
+  /* .team-section uses styles from .about-section */
+  /* Imagem da equipe usa .about-section-image */
+  .team-section .section-text {
+      text-align: center; /* Garante centralização do texto abaixo da imagem */
+  }
+
+
+  /* --- Seção Localização --- */
+  .location-section {}
+  .map-container {
+      border-radius: 8px;
+      overflow: hidden; /* Para o iframe não vazar */
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      height: 350px; /* Altura fixa container mapa */
+      width: 100%;
+      /* Ajuste animação */
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 0.8s 0.2s ease-out forwards;
+  }
+   /* Removida a classe animated-map, a animação está direta no map-container */
+
+  .map-container iframe,
+  .map-container .map-image { /* Aplica a imagem ou iframe */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none; /* Remove borda do iframe */
+  }
+  .location-text-block {
+      padding-left: 1rem; /* Espaço se estiver ao lado do mapa */
+      color: #444;
+      /* Ajuste animação */
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 0.8s ease-out forwards;
+  }
+    /* Delay para a coluna de texto */
+    .location-section .ant-row > .ant-col:last-child .location-text-block { animation-delay: 0.2s; }
+
+
+  .location-text-block .ant-typography {
+       color: #444 !important;
+       line-height: 1.7;
+  }
+  .location-text-block .ant-typography-strong {
+      color: #005C40 !important;
+      font-weight: 600;
+      font-size: 1.1em;
+      display: block;
+      margin-bottom: 0.5rem;
+  }
+
+
+  /* --- Responsividade --- */
+  @media (max-width: 992px) {
+      .about-hero { padding: 4rem 1.5rem; min-height: 350px;}
+      .about-hero-title { font-size: 2.6em; }
+      .about-hero-subtitle { font-size: 1.2em; }
+      .about-section { padding: 4rem 1.5rem; } /* Ajusta padding */
+      .section-title { font-size: 1.8em; }
+      .value-icon { font-size: 2.5em; }
+      .value-item .ant-typography-title { font-size: 1.2em !important; }
+       .why-choose-us-section li, .section-text { font-size: 1em; }
+  }
+
+  @media (max-width: 768px) {
+      .history-mission-section .ant-row,
+      .why-choose-us-section .ant-row, /* Adicionado para a nova seção */
+      .location-section .ant-row {
+          flex-direction: column; /* Empilha colunas */
+      }
+       /* Ajuste a ordem das imagens em colunas empilhadas */
+       .history-mission-section .ant-row > .ant-col:last-child, /* Imagem da História */
+       .why-choose-us-section .ant-row > .ant-col:first-child /* Imagem Por que escolher */
+       {
+          order: -1; /* Faz a coluna da imagem vir primeiro */
+          margin-bottom: 2rem; /* Espaço abaixo da imagem */
+       }
+
+       /* Animação para slide up em mobile para todos os blocos */
+       .animated-text-block, .about-section-image, .map-container, .location-text-block {
+           animation-name: slideInUp;
+           transform: translateY(30px); /* Reset transform para a nova animação */
+           animation-delay: 0s !important; /* Remove delays específicos */
+       }
+        /* Adiciona um pequeno delay para a segunda coluna empilhada */
+        .history-mission-section .ant-row > .ant-col:first-child .animated-text-block, /* Texto da História */
+        .why-choose-us-section .ant-row > .ant-col:last-child .animated-text-block, /* Texto Por que escolher */
+        .location-section .ant-row > .ant-col:last-child .location-text-block /* Texto Localização */
+        {
+             animation-delay: 0.2s !important;
+        }
+
+
+       .map-container {
+           height: 300px; /* Mapa menor */
+           margin-bottom: 1.5rem;
+       }
+       .location-text-block {
+           padding-left: 0;
+           text-align: center;
+       }
+        .values-section .ant-row {
+            justify-content: center; /* Centraliza cards de valor */
+        }
+        .value-item {
+            flex-basis: 80% !important; /* Faz valor ocupar mais espaço */
+            max-width: 80% !important;
+        }
+  }
+
+  @media (max-width: 576px) {
+      .about-hero { padding: 3rem 1rem; min-height: 250px;} /* Altura menor */
+      .about-hero-title { font-size: 2.2em; } /* Menor */
+      .about-hero-subtitle { font-size: 1.1em; } /* Menor */
+      .about-section { padding: 3rem 1rem; } /* Reduz padding */
+      .section-title { font-size: 1.6em; } /* Menor */
+      .section-text, .value-item .ant-typography-paragraph, .why-choose-us-section li { font-size: 1em; } /* Tamanho base */
+      .value-item { flex-basis: 100% !important; max-width: 100% !important;} /* Cada valor em uma linha */
+       .map-container { height: 250px; } /* Mapa menor */
+       .about-section-image { border-radius: 8px; } /* Raio menor */
+  }

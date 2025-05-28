@@ -1,0 +1,46 @@
+/* src/index.css */
+
+/* Importa a fonte (Ex: Inter - ajuste se preferir outra) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Reset Básico */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* Fonte padrão */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5; /* <<< FUNDO CLARO PADRÃO PARA E-COMMERCE (MUDE se preferir escuro) */
+  /* background-color: #1a1a1a; */ /* Alternativa: Fundo escuro */
+  color: #333; /* <<< COR DE TEXTO PADRÃO ESCURA (MUDE se usar fundo escuro) */
+  /* color: #FFFFFF; */ /* Alternativa: Texto branco */
+}
+
+/* Ajustes gerais mínimos */
+a {
+  /* color: #005C40; */ /* Cor primária para links (pode definir nos componentes) */
+  text-decoration: none;
+}
+
+/* Ajustes para Ant Design (Opcional - bom para consistência) */
+:root {
+  --primary-color: #005C40; /* Cor Verde Principal */
+  /* Pode definir outras variáveis CSS se quiser */
+}
+
+/* Aplica a cor primária a alguns elementos AntD (Exemplo) */
+/* .ant-btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+} */
+/* Adicione mais overrides do AntD aqui se necessário */

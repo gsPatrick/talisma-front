@@ -1,0 +1,50 @@
+/* src/pages/EcommerceHomePage/EcommerceHomePage.css */
+
+.ecommerce-layout {
+    background-color: #ffffff; /* Fundo geral branco para o conteúdo */
+    /* Ou use o fundo definido no index.css se preferir */
+    /* background-color: inherit; */
+  }
+  
+  .ecommerce-main-content {
+    /* Define padding geral ou deixa para as seções internas */
+    padding: 0; /* Remove padding padrão do Content se houver */
+    max-width: 1600px; /* Largura máxima para conteúdo do e-commerce */
+    margin: 0 auto; /* Centraliza */
+    width: 100%;
+  }
+  
+  /* Seção Hero/Banner */
+  .hero-banner-section {
+    background-color: #e6f4ea; /* Verde bem claro para o banner */
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem; /* Espaço abaixo do banner */
+  }
+  
+  .hero-banner-placeholder {
+    /* Estilos para o conteúdo dentro do banner */
+  }
+  
+  /* Seções de Categorias/Produtos */
+  .featured-categories-section,
+  .featured-products-section {
+    padding: 2rem 1rem; /* Padding das seções */
+    margin-bottom: 2rem;
+  }
+  
+  .featured-categories-section .ant-typography,
+  .featured-products-section .ant-typography {
+      color: #333; /* Garante cor escura para títulos das seções */
+  }
+  
+  /* Responsividade básica */
+  @media (max-width: 768px) {
+    .hero-banner-section {
+      padding: 3rem 1rem;
+    }
+    .featured-categories-section,
+    .featured-products-section {
+      padding: 1.5rem 0.5rem;
+    }
+  }

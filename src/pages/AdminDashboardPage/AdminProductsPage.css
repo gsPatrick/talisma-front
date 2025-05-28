@@ -1,0 +1,279 @@
+/* src/pages/AdminDashboardPage/AdminProductsPage.css */
+
+/* Variáveis CSS (podem ser globais se preferir) */
+:root {
+    --primary-green: #005C40; /* Verde principal */
+    --primary-green-light: #e6f4ea; /* Verde claro (hover, selecionado) */
+    --dark-text: #333; /* Texto escuro principal */
+    --medium-text: #555; /* Texto médio */
+    --light-text: #777; /* Texto claro */
+    --border-color: #f0f0f0; /* Cor de borda clara */
+    --background-grey: #f0f2f5; /* Fundo cinza do layout */
+    --card-background: #ffffff; /* Fundo de cards e conteúdo */
+    --shadow-subtle: 0 1px 4px rgba(0, 0, 0, 0.06); /* Sombra sutil */
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra de card */
+}
+
+
+/* --- Layout Geral (Inherited from AdminDashboardPage.css) --- */
+/*
+.admin-dashboard-layout { ... }
+.admin-loading-page { ... }
+.admin-header.ant-layout-header { ... }
+.admin-sider.ant-layout-sider { ... }
+.admin-content-layout.ant-layout { ... }
+.admin-content.ant-layout-content { ... }
+*/
+
+/* --- Estilos específicos da página de Produtos --- */
+.admin-products-page {}
+
+/* Título da seção (ajustado para melhor alinhamento ícone/texto) */
+.admin-section-title.ant-typography {
+     color: var(--dark-text) !important;
+     margin-bottom: 24px !important;
+     font-size: 1.8em;
+     font-weight: 600;
+     display: flex; /* Para alinhar ícone e texto */
+     align-items: center;
+     gap: 12px; /* Espaço entre ícone e texto */
+}
+.admin-section-title.ant-typography .anticon {
+    font-size: 1em; /* Tamanho do ícone relativo ao título */
+    color: var(--primary-green); /* Cor do ícone */
+}
+
+
+/* Estilo da Tabela Ant Design */
+.admin-products-table.ant-table-wrapper {
+    /* Fundo da tabela */
+    background-color: var(--card-background);
+    border-radius: 8px; /* Bordas arredondadas na tabela */
+    overflow: hidden; /* Garante que bordas arredondadas funcionem */
+    box-shadow: var(--shadow-subtle); /* Sombra sutil */
+}
+
+/* Cabeçalho da Tabela */
+.admin-products-table .ant-table-thead > tr > th {
+    background-color: var(--background-grey) !important; /* Fundo cinza claro no cabeçalho */
+    color: var(--medium-text) !important; /* Cor do texto */
+    font-weight: 600;
+    font-size: 0.95em;
+    border-bottom: 1px solid var(--border-color) !important; /* Borda inferior */
+}
+/* Bordas laterais do cabeçalho (opcional) */
+/* .admin-products-table .ant-table-thead > tr > th:not(:last-child) {
+    border-right: 1px solid var(--border-color) !important;
+} */
+
+/* Corpo da Tabela (Células e Linhas) */
+.admin-products-table .ant-table-tbody > tr > td {
+    color: var(--dark-text); /* Cor do texto das células */
+    border-bottom: 1px solid var(--border-color) !important; /* Borda inferior */
+    /* Vertical alignment */
+     vertical-align: top; /* Alinha conteúdo ao topo */
+}
+/* Remove a borda inferior da última linha */
+.admin-products-table .ant-table-tbody > tr:last-child > td {
+    border-bottom: none !important;
+}
+
+/* Estilo da linha ao passar o mouse */
+.admin-products-table .ant-table-tbody > tr.ant-table-row:hover > td {
+    background-color: #f9f9f9 !important; /* Fundo levemente cinza no hover */
+}
+
+/* Estilo da Paginação da Tabela */
+.admin-products-table .ant-pagination {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.admin-products-table .ant-pagination .ant-pagination-item-active {
+    background-color: var(--primary-green) !important; /* Fundo verde na página ativa */
+    border-color: var(--primary-green) !important;
+}
+.admin-products-table .ant-pagination .ant-pagination-item-active a {
+     color: var(--card-background) !important; /* Texto branco na página ativa */
+}
+.admin-products-table .ant-pagination .ant-pagination-item:hover {
+     border-color: var(--primary-green) !important;
+}
+.admin-products-table .ant-pagination .ant-pagination-item:hover a {
+     color: var(--primary-green) !important;
+}
+/* Estilo dos botões Prev/Next e pontos */
+.admin-products-table .ant-pagination-prev .ant-pagination-item-link,
+.admin-products-table .ant-pagination-next .ant-pagination-item-link,
+.admin-products-table .ant-pagination-jump-prev .ant-pagination-item-container,
+.admin-products-table .ant-pagination-jump-next .ant-pagination-item-container {
+    color: var(--medium-text);
+}
+.admin-products-table .ant-pagination-prev:hover .ant-pagination-item-link,
+.admin-products-table .ant-pagination-next:hover .ant-pagination-item-link {
+     border-color: var(--primary-green) !important;
+     color: var(--primary-green) !important;
+}
+.admin-products-table .ant-pagination-total-text {
+    color: var(--medium-text);
+    font-size: 0.9em;
+}
+
+
+/* Estilos dos Botões de Ação na Tabela */
+.admin-products-table .ant-btn-link {
+    color: var(--primary-green); /* Cor verde nos botões de link (Editar) */
+    transition: color 0.2s ease;
+}
+.admin-products-table .ant-btn-link:hover {
+    color: #004d35; /* Verde mais escuro no hover */
+}
+/* Botão de Deletar */
+.admin-products-table .ant-btn-link.ant-btn-dangerous {
+    color: #e15947; /* Vermelho padrão danger */
+}
+.admin-products-table .ant-btn-link.ant-btn-dangerous:hover {
+    color: #c24739; /* Vermelho mais escuro */
+}
+
+/* Imagem na Célula da Tabela */
+.admin-products-table .product-image-cell {
+    width: 50px; height: 50px; object-fit: cover; border-radius: 4px; border: 1px solid #eee;
+}
+
+
+/* --- Estilos do Modal de Adicionar/Editar Produto --- */
+.admin-product-modal .ant-modal-header {
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--card-background);
+}
+.admin-product-modal .ant-modal-title {
+    color: var(--dark-text);
+    font-weight: 600;
+}
+.admin-product-modal .ant-modal-body {
+    padding: 24px;
+    max-height: 70vh; /* Limita altura do corpo do modal para scroll */
+    overflow-y: auto; /* Adiciona scroll se necessário */
+}
+/* Estilização scrollbar do modal (Webkit) */
+.admin-product-modal .ant-modal-body::-webkit-scrollbar { width: 5px; }
+.admin-product-modal .ant-modal-body::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 3px;}
+.admin-product-modal .ant-modal-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px;}
+.admin-product-modal .ant-modal-body::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+
+.admin-product-modal .ant-modal-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 16px 24px;
+}
+.admin-product-modal .ant-modal-footer .ant-btn-primary {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.admin-product-modal .ant-modal-footer .ant-btn-primary:hover {
+     background-color: #004d35;
+     border-color: #004d35;
+}
+
+/* Estilos dos Campos do Formulário (Reutilizados do Checkout/Auth) */
+.admin-product-modal .ant-form-item-label > label { color: var(--medium-text) !important; font-weight: 500; font-size: 0.9em; }
+.admin-product-modal .ant-input-affix-wrapper,
+.admin-product-modal .ant-input,
+.admin-product-modal .ant-input-number,
+.admin-product-modal .ant-select-selector,
+.admin-product-modal .ant-upload.ant-upload-select-picture-card {
+    border-radius: 8px !important; border-color: #d9d9d9 !important; background-color: #fff !important; /* Fundo branco explícito */
+}
+.admin-product-modal .ant-input,
+.admin-product-modal .ant-input-number-input { color: var(--dark-text) !important; }
+.admin-product-modal .ant-input::placeholder { color: #aaa !important; }
+.admin-product-modal .ant-input-prefix .anticon { color: #aaa !important; }
+
+.admin-product-modal .ant-input-affix-wrapper-focused, .admin-product-modal .ant-input-affix-wrapper:focus, .admin-product-modal .ant-input-affix-wrapper:focus-within,
+.admin-product-modal .ant-input-number-focused,
+.admin-product-modal .ant-select-focused .ant-select-selector,
+.admin-product-modal .ant-select:not(.ant-select-disabled):hover .ant-select-selector,
+.admin-product-modal .ant-upload:hover {
+    border-color: var(--primary-green) !important;
+    box-shadow: 0 0 0 2px rgba(0, 92, 64, 0.1) !important;
+    outline: 0;
+}
+/* Autofill */
+.admin-product-modal input:-webkit-autofill, .admin-product-modal input:-webkit-autofill:hover, .admin-product-modal input:-webkit-autofill:focus, .admin-product-modal input:-webkit-autofill:active { -webkit-box-shadow: 0 0 0 30px var(--card-background) inset !important; -webkit-text-fill-color: var(--dark-text) !important; caret-color: var(--dark-text) !important; border-radius: 8px !important; border-color: #d9d9d9 !important; }
+
+
+/* Estilo do Upload Picture Card */
+.admin-product-modal .ant-upload.ant-upload-select-picture-card {
+    background-color: #f8f9fa !important; /* Fundo cinza claro no upload */
+    border: 1px dashed #d9d9d9 !important; /* Borda tracejada */
+}
+.admin-product-modal .ant-upload-list-picture-card .ant-upload-list-item {
+     border-radius: 8px !important; border-color: #d9d9d9 !important;
+}
+
+/* Dynamic Form.List (Specs) */
+.admin-product-modal .ant-form-item-has-feedback .ant-form-item-children-icon { margin-top: 8px;} /* Alinha ícone de feedback */
+
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    /* Reduz padding da área de conteúdo */
+    .admin-content-layout.ant-layout { padding: 16px; }
+    .admin-content.ant-layout-content { padding: 16px; }
+    /* Ajusta título da seção */
+    .admin-section-title.ant-typography { font-size: 1.6em; }
+
+    /* Modal em mobile */
+    .admin-product-modal .ant-modal { max-width: calc(100vw - 32px); } /* Ajusta largura máxima */
+    .admin-product-modal .ant-modal-body { padding: 16px; }
+    .admin-product-modal .ant-modal-footer { padding: 12px 16px; }
+    .admin-product-modal .ant-upload.ant-upload-select-picture-card { width: 80px; height: 80px; } /* Reduz tamanho upload card */
+    .admin-product-modal .ant-upload-list-picture-card .ant-upload-list-item { width: 80px; height: 80px; } /* Reduz tamanho item upload */
+}
+
+@media (max-width: 576px) {
+    /* Reduz padding da área de conteúdo */
+    .admin-content-layout.ant-layout { padding: 10px; }
+    .admin-content.ant-layout-content { padding: 10px; }
+    /* Ajusta título da seção */
+    .admin-section-title.ant-typography { font-size: 1.4em; gap: 8px;}
+    .admin-section-title.ant-typography .anticon { font-size: 1em;}
+
+    /* Ajusta layout dos campos no modal */
+    .admin-product-modal .ant-row > .ant-col {
+        max-width: 100%; flex: 0 0 100%; /* Colunas ocupam 100% em telas pequenas */
+    }
+     /* Ajusta espaço entre campos em colunas empilhadas */
+     .admin-product-modal .ant-row.ant-form-item-row {
+        display: block;
+     }
+     .admin-product-modal .ant-row.ant-form-item-row .ant-col {
+         margin-bottom: 16px; /* Espaço entre itens empilhados */
+     }
+     .admin-product-modal .ant-row.ant-form-item-row .ant-col:last-child {
+         margin-bottom: 0;
+     }
+
+     /* Ajusta espaço e alinhamento do Dynamic Form.List */
+     .admin-product-modal .ant-form-list .ant-space {
+         flex-direction: column;
+         align-items: stretch !important; /* Estica itens */
+     }
+      .admin-product-modal .ant-form-list .ant-space .ant-form-item {
+          width: 100%; /* Ocupa largura total */
+      }
+       .admin-product-modal .ant-form-list .ant-space .ant-form-item .ant-input-number,
+       .admin-product-modal .ant-form-list .ant-space .ant-form-item .ant-input {
+           width: 100% !important; /* Garante que input/number ocupe 100% */
+       }
+      .admin-product-modal .ant-form-list .ant-space .anticon {
+          position: absolute; /* Posiciona o ícone de remover */
+          right: 0;
+          top: -24px; /* Ajuste conforme o padding/margin */
+          font-size: 1.2em;
+          color: #999;
+      }
+       .admin-product-modal .ant-form-list .ant-space .anticon:hover { color: #e15947; }
+
+}

@@ -1,0 +1,137 @@
+/* src/componentsAgro/CategoryGrid.css */
+
+.category-grid-section {
+  padding: 3rem 1.5rem; /* Padding da seção */
+  background-color: #ffffff; /* Fundo branco para esta seção */
+  /* Ou um cinza muito claro: #f9fafb; */
+}
+
+.category-grid-title.ant-typography {
+  text-align: center;
+  font-size: 1.8em; /* Tamanho do título da seção */
+  font-weight: 600;
+  margin-bottom: 2.5rem !important; /* Espaço abaixo do título */
+  color: #333 !important; /* Cor escura */
+}
+
+/* Container do Grid de Cards */
+.category-cards-container {
+  max-width: 1200px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza */
+  display: grid;
+  /* Grid responsivo: mínimo 150px, máximo 1fr, auto-preenchimento */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem; /* Espaço entre os cards */
+}
+
+/* Link que envolve o Card */
+.category-card-link {
+  text-decoration: none;
+  display: block; /* Para ocupar o espaço do grid */
+  height: 100%; /* Garante altura consistente se houver descrições */
+}
+
+/* Card da Categoria */
+.category-card.ant-card {
+  border: 1px solid #e8e8e8; /* Borda sutil */
+  border-radius: 10px; /* Bordas arredondadas */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  height: 100%; /* Ocupa toda a altura do link */
+  background-color: #fff; /* Fundo branco */
+  display: flex; /* Para centralizar Meta */
+  flex-direction: column; /* Empilha cover e body */
+}
+.category-card.ant-card-hoverable:hover {
+  transform: translateY(-6px); /* Efeito de levantar */
+  box-shadow: 0 8px 20px rgba(0, 92, 64, 0.12); /* Sombra verde suave */
+  border-color: rgba(0, 92, 64, 0.3); /* Borda verde suave */
+}
+
+/* Corpo do Card */
+.category-card .ant-card-body {
+  padding: 1.2rem 1rem !important; /* Padding interno ajustado */
+  flex-grow: 1; /* Ocupa espaço vertical */
+  display: flex; /* Alinha itens do Meta */
+  align-items: center;
+}
+
+/* Meta (Avatar/Ícone e Título) */
+.category-card .ant-card-meta {
+  align-items: center; /* Alinha avatar e título verticalmente */
+  width: 100%; /* Garante que o meta ocupe a largura */
+}
+
+/* Ícone da Categoria (Avatar do Meta) */
+.category-card .ant-card-meta-avatar {
+  padding-right: 12px; /* Espaço entre ícone e título */
+}
+.category-card-icon {
+  font-size: 2em !important; /* Tamanho do ícone da categoria */
+  color: #005C40 !important; /* Cor verde */
+  /* Fundo opcional para o ícone */
+  /* background-color: #e6f4ea;
+  padding: 8px;
+  border-radius: 50%; */
+  transition: transform 0.3s ease;
+}
+.category-card.ant-card-hoverable:hover .category-card-icon {
+    transform: scale(1.1); /* Animação no ícone */
+}
+
+
+/* Título da Categoria */
+.category-card .ant-card-meta-title {
+  margin-bottom: 0 !important; /* Remove margem padrão */
+  white-space: normal; /* Permite quebra de linha se necessário */
+}
+.category-card-title-text {
+  color: #333 !important; /* Cor escura do título */
+  font-weight: 600;
+  font-size: 1em; /* Tamanho do título */
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+.category-card.ant-card-hoverable:hover .category-card-title-text {
+    color: #005C40 !important; /* Cor verde no hover */
+}
+
+
+/* Descrição Opcional (se descomentar no JSX) */
+/* .category-card .ant-card-meta-description {
+  font-size: 0.85em;
+  color: #777;
+  padding-top: 4px;
+} */
+
+/* Imagem Opcional (se descomentar no JSX) */
+/* .category-card-image {
+  height: 100px; // Altura fixa ou aspect-ratio
+  object-fit: cover;
+} */
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .category-grid-section { padding: 2.5rem 1rem; }
+    .category-grid-title.ant-typography { font-size: 1.6em; margin-bottom: 2rem; }
+    .category-cards-container {
+       grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Menor tamanho mínimo */
+       gap: 1rem;
+    }
+    .category-card .ant-card-body { padding: 1rem 0.8rem !important; }
+    .category-card-icon { font-size: 1.8em !important; }
+    .category-card .ant-card-meta-avatar { padding-right: 10px; }
+    .category-card-title-text { font-size: 0.9em; }
+}
+
+@media (max-width: 480px) {
+    .category-cards-container {
+       grid-template-columns: repeat(2, 1fr); /* Força 2 colunas */
+       gap: 0.8rem;
+    }
+     .category-card .ant-card-body { padding: 0.8rem 0.6rem !important; }
+      .category-card .ant-card-meta { flex-direction: column; text-align: center; gap: 0.5rem;} /* Ícone acima do texto */
+      .category-card .ant-card-meta-avatar { padding-right: 0; }
+      .category-card-icon { font-size: 1.7em !important; }
+      .category-card-title-text { font-size: 0.85em; line-height: 1.2; }
+}

@@ -1,0 +1,297 @@
+/* src/pages/AdminDashboardPage/AdminDashboardPage.css */
+
+/* Variáveis CSS para facilitar a gestão de cores */
+:root {
+    --primary-green: #005C40; /* Verde principal */
+    --primary-green-light: #e6f4ea; /* Verde claro (hover, selecionado) */
+    --dark-text: #333; /* Texto escuro principal */
+    --medium-text: #555; /* Texto médio */
+    --light-text: #777; /* Texto claro */
+    --border-color: #f0f0f0; /* Cor de borda clara */
+    --background-grey: #f0f2f5; /* Fundo cinza do layout */
+    --card-background: #ffffff; /* Fundo de cards e conteúdo */
+    --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.06); /* Sombra sutil */
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra de card */
+}
+
+
+/* Layout Geral */
+.admin-dashboard-layout {
+    min-height: 100vh; /* Garante que o layout ocupem toda a altura */
+    background-color: var(--background-grey); /* Fundo cinza claro */
+}
+
+/* Loading Page (Enquanto verifica autenticação) */
+.admin-loading-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--background-grey);
+}
+.admin-loading-page .ant-spin-dot i {
+    background-color: var(--primary-green) !important; /* Cor do spinner */
+}
+
+
+/* --- Cabeçalho do Dashboard --- */
+.admin-header.ant-layout-header {
+    background: var(--card-background); /* Fundo branco */
+    padding: 0 24px; /* Padding horizontal */
+    height: 64px; /* Altura padrão Ant Design header */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow-subtle); /* Sombra suave */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Acima do conteúdo e sider */
+}
+
+.admin-header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.admin-logo {
+    height: 32px; /* Tamanho do logo no header */
+    display: block;
+}
+
+.admin-header-title.ant-typography {
+    color: var(--dark-text) !important;
+    margin: 0 !important;
+    font-size: 1.2em !important;
+    font-weight: 600;
+}
+
+.admin-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.admin-user-greeting.ant-typography {
+    color: var(--medium-text);
+    font-size: 0.95em;
+}
+
+.admin-logout-button.ant-btn-text {
+    color: #e15947; /* Cor de perigo para sair */
+    font-weight: 500;
+     transition: all 0.2s ease;
+}
+.admin-logout-button.ant-btn-text:hover {
+    background-color: rgba(225, 89, 71, 0.08);
+    color: #c24739 !important;
+}
+.admin-logout-button.ant-btn-text .anticon { margin-right: 4px;}
+
+
+/* --- Barra Lateral (Sider) --- */
+.admin-sider.ant-layout-sider {
+    background: var(--card-background) !important; /* Fundo branco */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.06); /* Sombra lateral */
+    /* No tema light do AntD, ele adiciona padding-top, ajustaremos no menu */
+}
+/* Estilização scrollbar (Webkit) */
+.admin-sider.ant-layout-sider::-webkit-scrollbar { width: 5px; }
+.admin-sider.ant-layout-sider::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 3px;}
+.admin-sider.ant-layout-sider::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px;}
+.admin-sider.ant-layout-sider::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+
+/* Menu da Barra Lateral */
+.admin-sidebar-menu.ant-menu {
+    background-color: transparent !important; /* Fundo transparente para herdar do sider */
+    border-right: none !important; /* Remove borda direita padrão do tema light */
+    padding-top: 16px; /* Padding no topo do menu */
+}
+
+/* Itens do Menu */
+.admin-sidebar-menu.ant-menu .ant-menu-item {
+    margin: 0 !important;
+    padding: 12px 24px !important; /* Padding dos itens */
+    font-size: 1em;
+    color: var(--medium-text) !important; /* Cor do texto padrão */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 0; /* Sem borda arredondada */
+    display: flex;
+    align-items: center;
+    height: auto; /* Altura flexível */
+    line-height: normal; /* Espaçamento normal entre linhas */
+}
+
+.admin-sidebar-menu.ant-menu .ant-menu-item .anticon {
+    font-size: 1.1em;
+    color: var(--light-text); /* Cor do ícone padrão */
+    margin-right: 12px; /* Espaço entre ícone e texto */
+    transition: color 0.2s ease;
+}
+
+/* Estilo de Hover */
+.admin-sidebar-menu.ant-menu .ant-menu-item:hover {
+    color: var(--primary-green) !important; /* Cor verde no hover */
+    background-color: var(--primary-green-light) !important; /* Fundo verde claro no hover */
+}
+.admin-sidebar-menu.ant-menu .ant-menu-item:hover .anticon {
+     color: var(--primary-green) !important; /* Ícone verde no hover */
+}
+
+/* Estilo de Item Selecionado */
+.admin-sidebar-menu.ant-menu .ant-menu-item-selected {
+    color: var(--primary-green) !important; /* Cor verde */
+    background-color: var(--primary-green-light) !important; /* Fundo verde claro */
+    font-weight: 600; /* Bold */
+    border-right: 3px solid var(--primary-green); /* Barra verde lateral */
+}
+.admin-sidebar-menu.ant-menu .ant-menu-item-selected .anticon {
+    color: var(--primary-green) !important; /* Ícone verde */
+}
+/* Remove a barra padrão do item selecionado do tema light (já feito, só reforçando) */
+.admin-sidebar-menu.ant-menu-light .ant-menu-item-selected::after {
+    border-right: none !important;
+}
+
+/* Separador (Divider) - Mantido se for necessário no futuro */
+.admin-sidebar-menu.ant-menu .ant-menu-item-divider {
+    margin: 12px 0; /* Espaço vertical */
+    border-color: var(--border-color); /* Cor da linha */
+}
+
+
+/* --- Conteúdo Principal --- */
+.admin-content-layout.ant-layout {
+    padding: 24px; /* Padding geral do layout do conteúdo */
+    background-color: transparent; /* Fundo transparente para usar o fundo do layout geral */
+}
+
+.admin-content.ant-layout-content {
+    background: var(--card-background); /* Fundo branco para a área de conteúdo */
+    padding: 24px; /* Padding interno da área de conteúdo */
+    min-height: 280px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-subtle); /* Sombra sutil */
+}
+
+/* Estilos para as seções placeholder gerais */
+.dashboard-section-placeholder {
+    text-align: center;
+    padding: 40px 20px;
+}
+.dashboard-section-placeholder .ant-typography-title {
+    color: var(--dark-text) !important;
+    margin-bottom: 16px !important;
+}
+.dashboard-section-placeholder .ant-alert {
+    max-width: 600px;
+    margin: 20px auto 0;
+}
+
+
+/* Estilos para a página de Produtos */
+.admin-products-page {}
+
+.admin-section-title.ant-typography {
+     color: var(--dark-text) !important;
+     margin-bottom: 24px !important;
+     font-size: 1.8em;
+     font-weight: 600;
+     display: flex; /* Para alinhar ícone e texto */
+     align-items: center;
+     gap: 12px;
+}
+.admin-section-title.ant-typography .anticon {
+    font-size: 1.1em; /* Tamanho do ícone relativo ao título */
+    color: var(--primary-green); /* Cor do ícone */
+}
+
+
+/* Estilos para a seção de Overview do Dashboard (mantido caso o renderContent seja expandido) */
+.dashboard-overview-content {}
+
+.dashboard-overview-title.ant-typography {
+     color: var(--dark-text) !important;
+     margin-bottom: 24px !important;
+     font-size: 1.8em;
+     font-weight: 600;
+}
+
+.dashboard-stats-card.ant-card {
+    border-radius: 10px !important; /* Bordas mais arredondadas */
+    border: 1px solid #e8e8e8 !important; /* Borda clara */
+    box-shadow: var(--shadow-card); /* Sombra um pouco mais pronunciada e clara */
+    text-align: left; /* Alinha texto à esquerda dentro do card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dashboard-stats-card.ant-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-stats-card .ant-card-body {
+    padding: 20px !important; /* Padding interno ajustado */
+}
+.dashboard-stats-card .ant-space { /* Espaço entre ícone e texto "Pedidos Pendentes:" */
+    align-items: center;
+    margin-bottom: 8px;
+}
+.dashboard-stats-card .stats-icon {
+    font-size: 2em;
+    color: var(--primary-green); /* Cor verde */
+    margin-right: 8px;
+    line-height: 1; /* Alinha melhor */
+}
+.dashboard-stats-card .ant-typography-strong {
+    color: var(--medium-text);
+    font-size: 1em;
+    font-weight: 500;
+}
+.dashboard-stats-card .stats-value.ant-typography-title {
+    margin: 0 !important; /* Remove margem padrão */
+    font-size: 1.6em !important; /* Tamanho do valor */
+    color: var(--dark-text) !important; /* Cor mais escura */
+    font-weight: 700;
+}
+
+
+/* Responsividade do Sider */
+@media (max-width: 991px) { /* Breakpoint LG do Ant Design */
+    .admin-sider.ant-layout-sider-collapsed {
+        /* Estilos para sider colapsado (ex: largura) */
+    }
+    .admin-content-layout.ant-layout {
+        padding: 16px; /* Reduz padding geral em telas menores */
+    }
+    .admin-content.ant-layout-content {
+        padding: 16px; /* Reduz padding interno */
+    }
+     .admin-header {
+         padding: 0 16px;
+     }
+     .admin-header-title {
+         display: none; /* Oculta o título do painel em telas menores */
+     }
+      .admin-user-greeting {
+          display: none; /* Oculta saudação em telas menores */
+      }
+      .admin-header-right .ant-space {
+           gap: 8px;
+      }
+}
+
+/* Abaixo do breakpoint LG, o Sider com breakpoint="lg" collapsedWidth="0" se oculta */
+/* Você pode adicionar estilos para um botão que abriria um Drawer nesse ponto se necessário */
+
+@media (max-width: 576px) { /* Breakpoint SM do Ant Design */
+    .admin-content-layout.ant-layout { padding: 10px; }
+    .admin-content.ant-layout-content { padding: 10px; }
+    .admin-header { height: 56px; }
+    .admin-logo { height: 28px; }
+    .admin-section-title.ant-typography { font-size: 1.6em; }
+    .dashboard-overview-title.ant-typography { font-size: 1.6em; }
+    .dashboard-stats-card .ant-card-body { padding: 12px 16px !important; }
+    .dashboard-stats-card .stats-icon { font-size: 1.6em; margin-right: 6px;}
+    .dashboard-stats-card .ant-typography-strong { font-size: 0.95em; }
+    .dashboard-stats-card .stats-value.ant-typography-title { font-size: 1.3em !important; }
+}

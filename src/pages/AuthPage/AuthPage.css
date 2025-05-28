@@ -1,0 +1,192 @@
+/* src/pages/AuthPage/AuthPage.css */
+
+.auth-page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Fundo pode ser branco ou um gradiente suave */
+    background-color: #f0f2f5;
+    /* background: linear-gradient(to bottom, #f8f9fa, #e9ecef); */
+  }
+  
+  .auth-main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza verticalmente */
+    padding: 4rem 1rem 5rem; /* Mais padding vertical */
+  }
+  
+  /* Card Principal */
+  .auth-form-card {
+    width: 100%;
+    max-width: 450px; /* Largura ajustada */
+    background-color: #ffffff !important; /* Fundo branco */
+    border: 1px solid #e8e8e8 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Para bordas arredondadas funcionarem com Tabs */
+  }
+  .auth-form-card .ant-card-body {
+      padding: 0 !important; /* Remove padding do card, Tabs controlará */
+      color: #333 !important; /* Texto escuro */
+  }
+  
+  .auth-header {
+    text-align: center;
+    padding: 2rem 2rem 1.5rem; /* Padding interno do header */
+    /* background-color: #f8f9fa; */ /* Fundo opcional */
+    /* border-bottom: 1px solid #eee; */
+  }
+  
+  .auth-logo {
+    height: 40px; /* Tamanho ajustado */
+    margin-bottom: 1.2rem;
+  }
+  
+  .auth-title.ant-typography {
+    color: #333 !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 600;
+    font-size: 1.5em !important;
+  }
+  .auth-header .ant-typography { /* Parágrafo de descrição */
+    color: #555 !important;
+    font-size: 0.95em;
+  }
+  
+  /* Estilo das Abas (Tabs) */
+  .auth-tabs.ant-tabs {
+      color: #555 !important; /* Cor padrão das abas */
+  }
+  /* Remove padding extra se header do card não for usado */
+  .auth-tabs > .ant-tabs-nav {
+      margin-bottom: 0 !important; /* Remove espaço abaixo das abas */
+       padding: 0 2.5rem; /* Padding horizontal nas abas */
+       border-bottom: 1px solid #f0f0f0; /* Linha abaixo das abas */
+  }
+  .auth-tabs .ant-tabs-tab {
+      padding: 14px 16px !important; /* Padding das abas */
+      font-size: 1.05em;
+      font-weight: 500;
+      color: #555 !important; /* Cor da aba inativa */
+  }
+  .auth-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+      color: #005C40 !important; /* Cor verde na aba ativa */
+      font-weight: 600;
+  }
+  .auth-tabs .ant-tabs-ink-bar {
+      background: #005C40 !important; /* Linha verde abaixo da aba ativa */
+      height: 3px !important;
+  }
+  /* Conteúdo da Aba */
+  .auth-tabs .ant-tabs-content-holder {
+      padding: 2rem 2.5rem; /* Padding dentro de cada aba */
+  }
+  
+  
+  /* Estilos do Formulário AntD (comum a Login e Cadastro) */
+  .auth-antd-form .ant-form-item-label > label {
+    color: #555 !important;
+    font-weight: 500;
+    font-size: 0.9em;
+  }
+  .auth-antd-form .ant-input-affix-wrapper,
+  .auth-antd-form .ant-input-password {
+    background-color: #f8f9fa !important; /* Fundo cinza claro para inputs */
+    border-color: #d9d9d9 !important;
+    border-radius: 8px !important;
+  }
+  .auth-antd-form .ant-input {
+    background-color: transparent !important;
+    color: #333 !important;
+    height: 46px !important; line-height: 46px !important;
+    font-size: 1em;
+  }
+  .auth-antd-form input:-webkit-autofill,
+  .auth-antd-form input:-webkit-autofill:hover,
+  .auth-antd-form input:-webkit-autofill:focus,
+  .auth-antd-form input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px #f8f9fa inset !important;
+      -webkit-text-fill-color: #333 !important;
+      caret-color: #333 !important;
+      border-radius: 8px !important; border-color: #d9d9d9 !important;
+  }
+  .auth-antd-form .ant-input::placeholder { color: #aaa !important; }
+  .auth-antd-form .ant-input-prefix .anticon { color: #aaa !important; font-size: 1.1em; }
+  .auth-antd-form .ant-input-affix-wrapper-focused,
+  .auth-antd-form .ant-input-affix-wrapper:focus,
+  .auth-antd-form .ant-input-affix-wrapper:focus-within,
+  .auth-antd-form .ant-input-password-focused .ant-input-affix-wrapper {
+    border-color: #005C40 !important;
+    box-shadow: 0 0 0 2px rgba(0, 92, 64, 0.1) !important;
+    outline: 0;
+  }
+  /* Checkbox "Lembrar-me" */
+  .auth-antd-form .ant-form-item:has(.ant-checkbox-wrapper) { margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .auth-antd-form .ant-checkbox-wrapper { color: #555 !important; font-size: 0.9em; }
+  .auth-antd-form .ant-checkbox-inner { background-color: #fff !important; border-color: #ccc !important; }
+  .auth-antd-form .ant-checkbox-checked .ant-checkbox-inner { background-color: #005C40 !important; border-color: #005C40 !important; }
+  .auth-antd-form .ant-checkbox-checked::after { border-color: #005C40 !important; }
+  /* Link "Esqueci senha" */
+  .auth-form-forgot { color: #005C40; font-size: 0.9em; text-decoration: none; }
+  .auth-form-forgot:hover { text-decoration: underline; }
+  
+  /* Botão de Submissão */
+  .auth-submit-button.ant-btn-primary {
+    background: #005C40 !important; /* Cor verde sólida */
+    border: none !important; color: #fff !important;
+    height: 48px !important; font-size: 1.05em; font-weight: 600;
+    border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 92, 64, 0.2);
+    margin-top: 0.5rem; /* Menos espaço acima */
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+  }
+  .auth-submit-button.ant-btn-primary .anticon { margin-right: 8px; }
+  .auth-submit-button.ant-btn-primary:hover:not(:disabled) { background: #007a54 !important; box-shadow: 0 6px 18px rgba(0, 92, 64, 0.3); transform: translateY(-1px); }
+  .auth-submit-button.ant-btn-primary:disabled { background: #ccc !important; /* ... */ }
+  
+  /* Prompt para trocar de aba */
+  .auth-switch-prompt {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555 !important;
+      margin-top: 1.5rem !important;
+  }
+  .auth-switch-prompt .switch-link.ant-btn-link {
+      color: #005C40 !important;
+      font-weight: 600;
+      padding: 0 4px; /* Ajusta padding do link */
+      height: auto;
+      line-height: inherit;
+  }
+  .auth-switch-prompt .switch-link.ant-btn-link:hover {
+      color: #007a54 !important;
+      background: none !important;
+  }
+  
+  /* Texto de Termos (aba cadastro) */
+  .auth-terms-info {
+      text-align: center;
+      font-size: 0.85em;
+      color: #777 !important;
+      margin-top: 1rem !important;
+  }
+  .auth-terms-info a { color: #005C40; text-decoration: none; }
+  .auth-terms-info a:hover { text-decoration: underline; }
+  
+  /* Mensagens de erro */
+  .auth-antd-form .ant-form-item-explain-error { color: #e15947 !important; font-size: 0.9em; margin-top: 4px; text-align: left; }
+  
+  
+  /* Responsividade */
+  @media (max-width: 480px) {
+    .auth-main-content { padding: 2rem 0.5rem 3rem; } /* Menos padding */
+    .auth-form-card { padding: 0 !important; box-shadow: none; border: none; background: transparent !important; }
+    .auth-form-card .ant-card-body { padding: 0 !important; }
+    .auth-header { padding: 1.5rem 1rem 1rem; }
+    .auth-tabs > .ant-tabs-nav { padding: 0 1rem; }
+    .auth-tabs .ant-tabs-content-holder { padding: 1.5rem; } /* Menos padding interno */
+    .auth-title.ant-typography { font-size: 1.4em; }
+    .auth-antd-form .ant-input { height: 44px !important; line-height: 44px !important; }
+    .auth-submit-button.ant-btn { height: 46px !important; font-size: 1em; }
+  }

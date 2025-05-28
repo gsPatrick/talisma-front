@@ -1,0 +1,189 @@
+/* src/pages/MyOrdersPage/MyOrdersPage.css */
+
+/* Variáveis CSS (se não forem globais) */
+:root {
+    --primary-green: #005C40;
+    --primary-green-light: #e6f4ea;
+    --dark-text: #333;
+    --medium-text: #555;
+    --light-text: #777;
+    --border-color: #f0f0f0;
+    --background-grey: #f9fafb; /* Fundo claro da página */
+    --card-background: #ffffff;
+    --shadow-subtle: 0 1px 4px rgba(0, 0, 0, 0.06);
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Layout Geral (Herdado do ecommerce-layout) */
+.my-orders-layout {
+    background-color: var(--background-grey);
+}
+
+/* Loading Page (Herdado ou defina aqui) */
+/* Já definido em MyAccountPage.css ou em um global */
+/*
+.ecommerce-loading-page { ... }
+.ecommerce-loading-page .ant-spin-dot i { ... }
+*/
+
+
+/* Conteúdo Principal */
+.my-orders-content.ecommerce-main-content {
+    padding: 2.5rem 1.5rem !important; /* Padding padrão */
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto;
+    width: 100%;
+    min-height: 60vh; /* Altura mínima para spinner */
+}
+
+/* Título e Subtítulo da Página */
+.my-orders-title.ant-typography {
+    text-align: center;
+    color: var(--dark-text) !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 600;
+    font-size: 2em;
+}
+.my-orders-subtitle.ant-typography {
+    text-align: center;
+    color: var(--medium-text) !important;
+    margin-bottom: 2.5rem !important;
+}
+
+
+/* Card da Tabela de Pedidos */
+.my-orders-card.ant-card {
+    border-radius: 10px !important;
+    border: 1px solid #e8e8e8 !important;
+    box-shadow: var(--shadow-card);
+}
+.my-orders-card .ant-card-head {
+    border-bottom: 1px solid var(--border-color) !important;
+    min-height: 52px;
+}
+.my-orders-card .ant-card-head-title {
+    color: var(--dark-text) !important;
+    font-weight: 600;
+    font-size: 1.15em;
+}
+.my-orders-card .ant-card-head-title .anticon {
+    color: var(--primary-green); /* Cor do ícone no título do card */
+    margin-right: 8px;
+}
+
+.my-orders-card .ant-card-body {
+    padding: 20px 24px !important;
+    color: var(--dark-text);
+    font-size: 1em;
+}
+
+
+/* Estilo da Tabela de Pedidos */
+.my-orders-table.ant-table-wrapper {
+    /* Fundo da tabela */
+    background-color: var(--card-background); /* Deve ser o mesmo do Card pai */
+    /* Removido borda e sombra, pois já estão no Card pai */
+    /* border-radius: 8px; */
+    overflow: hidden; /* Garante que bordas arredondadas do card funcionem */
+    /* box-shadow: var(--shadow-subtle); */
+}
+
+/* Cabeçalho da Tabela (ajustado para combinar) */
+.my-orders-table .ant-table-thead > tr > th {
+    background-color: #f8f9fa !important; /* Fundo levemente cinza para o cabeçalho */
+    color: var(--medium-text) !important;
+    font-weight: 600;
+    font-size: 0.95em;
+    border-bottom: 1px solid var(--border-color) !important;
+     /* Removido bordas laterais */
+}
+
+/* Corpo da Tabela (Células e Linhas) */
+.my-orders-table .ant-table-tbody > tr > td {
+    color: var(--dark-text);
+    border-bottom: 1px solid var(--border-color) !important;
+    vertical-align: middle; /* Alinha conteúdo ao meio */
+}
+/* Remove a borda inferior da última linha */
+.my-orders-table .ant-table-tbody > tr:last-child > td {
+    border-bottom: none !important;
+}
+
+/* Estilo da linha ao passar o mouse */
+.my-orders-table .ant-table-tbody > tr.ant-table-row:hover > td {
+    background-color: #f9f9f9 !important;
+}
+
+/* Estilo da Paginação da Tabela (herdado de AdminProductsPage ou global) */
+.my-orders-table .ant-pagination {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+/*
+.my-orders-table .ant-pagination .ant-pagination-item-active { ... }
+.my-orders-table .ant-pagination .ant-pagination-item-active a { ... }
+.my-orders-table .ant-pagination .ant-pagination-item:hover { ... }
+.my-orders-table .ant-pagination .ant-pagination-item:hover a { ... }
+*/
+
+/* Estilos das Tags de Status (herdado de Ant Design) */
+/* Cores e ícones já definidos no JSX com as props 'color' e 'icon' */
+
+
+/* Estilo do Botão "Ver Detalhes" */
+.my-orders-table .ant-btn-link {
+    color: var(--primary-green);
+    font-weight: 500;
+     transition: color 0.2s ease;
+}
+.my-orders-table .ant-btn-link:hover {
+    color: #004d35;
+}
+
+
+/* Estilo do Empty State (se não houver pedidos) */
+.my-orders-content .ant-empty {
+    margin: 40px 0;
+}
+.my-orders-content .ant-empty-description {
+    color: var(--medium-text);
+}
+.my-orders-content .ant-empty .ant-btn-primary {
+     background-color: var(--primary-green);
+     border-color: var(--primary-green);
+     font-weight: 600;
+}
+.my-orders-content .ant-empty .ant-btn-primary:hover {
+    background-color: #004d35;
+    border-color: #004d35;
+}
+
+
+/* Footer Placeholder (Herdado) */
+/* .placeholder-footer { ... } */
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .my-orders-content.ecommerce-main-content {
+        padding: 1.5rem 1rem !important;
+    }
+    .my-orders-title.ant-typography { font-size: 1.8em; }
+    .my-orders-subtitle.ant-typography { font-size: 1em; margin-bottom: 2rem !important;}
+     .my-orders-card.ant-card .ant-card-body { padding: 16px !important;}
+     .my-orders-card .ant-card-head-title { font-size: 1.1em; }
+      /* Ajuste para scroll horizontal em tabelas largas no mobile */
+      .my-orders-table.ant-table-wrapper .ant-table-container {
+          overflow-x: auto;
+      }
+}
+
+@media (max-width: 576px) {
+    .my-orders-content.ecommerce-main-content { padding: 1rem 0.5rem !important; }
+    .my-orders-title.ant-typography { font-size: 1.6em; }
+     .my-orders-card.ant-card .ant-card-body { padding: 12px !important; }
+     .my-orders-card .ant-card-head-title { font-size: 1em; }
+     /* Reduz fonte nas células da tabela */
+     .my-orders-table .ant-table-tbody > tr > td { font-size: 0.9em; }
+      .my-orders-table .ant-table-thead > tr > th { font-size: 0.9em;}
+}
