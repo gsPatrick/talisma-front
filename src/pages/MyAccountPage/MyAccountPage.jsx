@@ -10,7 +10,7 @@ import {
 
 import { useNavigate } from 'react-router-dom';
 import HeaderAgro from '../../componentsAgro/HeaderAgro/HeaderAgro';
-// import FooterAgro from '../../componentsAgro/FooterAgro';
+ import FooterLP from '../../componentsAgro/FooterAgro/FooterAgro';
 import { useAuth } from '../../context/AuthContext';
 import './MyAccountPage.css';
 
@@ -369,7 +369,7 @@ const MyAccountPage = () => {
       </Content>
 
       {/* Renderiza Footer (ajuste conforme seu componente) */}
-       <footer className="placeholder-footer"> E-commerce Footer </footer>
+       <FooterLP />
     </Layout>
   );
 };

@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'; // CORREÇÃO: Esta import
 import { Form, Input, Button, Radio, Typography, Card, Row, Col, Divider, message, Spin, Steps, List, Avatar, Layout, Space, Empty, Select, Alert } from 'antd'; // Importado Alert para mensagem de erro de frete
 import { CreditCardOutlined, QrcodeOutlined, BarcodeOutlined, LockOutlined, UserOutlined, MailOutlined, ArrowLeftOutlined, WhatsAppOutlined, LoadingOutlined, EnvironmentOutlined, TruckOutlined } from '@ant-design/icons';
 import HeaderAgro from '../../componentsAgro/HeaderAgro/HeaderAgro'; // <<< Verifique o caminho
-// import FooterLP from '../../componentsLP/FooterLP'; // <<< Verifique o caminho (ou use FooterAgro)
+ import FooterLP from '../../componentsAgro/FooterAgro/FooterAgro';
 import { useCart } from '../../context/CartContext'; // Importa o hook do carrinho
 import debounce from 'lodash.debounce'; // Importa debounce
 import './CheckoutCartPage.css'; // Estilos específicos para esta página
@@ -495,7 +495,7 @@ const CheckoutCartPage = () => {
       {/* Renderiza Header e Footer se existirem */}
       {/* typeof FooterLP === 'function' ? <FooterLP /> : <footer className="placeholder-footer"> E-commerce Footer </footer> */}
       {/* Se tiver um componente de FooterAgro, use ele */}
-       <footer className="placeholder-footer"> E-commerce Footer </footer> {/* Placeholder */}
+       <FooterLP />
 
     </Layout>
   );

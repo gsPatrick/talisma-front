@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Form, Input, Button, Checkbox, Typography, Card, Spin, message, Tabs } from 'antd';
 import { MailOutlined, LockOutlined, LoginOutlined, UserOutlined, WhatsAppOutlined, SolutionOutlined } from '@ant-design/icons';
 import HeaderAgro from '../../componentsAgro/HeaderAgro/HeaderAgro';
-// import FooterLP from '../../componentsLP/FooterLP';
+import FooterLP from '../../componentsAgro/FooterAgro/FooterAgro';
 import { useAuth } from '../../context/AuthContext'; // Importa o hook de autenticação
 import './AuthPage.css';
 
@@ -255,7 +255,7 @@ const AuthPage = () => {
       </main>
 
       {/* Renderiza Footer (ajuste conforme seu componente) */}
-       <footer className="placeholder-footer"> E-commerce Footer </footer> {/* Placeholder */}
+       <FooterLP />
     </div>
   );
 };

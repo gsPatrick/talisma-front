@@ -1,0 +1,230 @@
+/* src/componentsAgro/FooterAgro/FooterAgro.css */
+
+/* Variáveis CSS (se não forem globais, podem ser definidas aqui) */
+:root {
+    --primary-green: #005C40; /* Cor Verde Principal */
+    --primary-green-dark: #004d35; /* Verde mais escuro */
+    --dark-text: #333; /* Texto escuro principal */
+    --medium-text: #555; /* Texto médio */
+    --light-text: #777; /* Texto claro */
+    --background-light: #f8f9fa; /* Fundo claro para o footer */
+    --border-color-subtle: #e9ecef; /* Borda sutil */
+}
+
+/* --- Animação de Entrada --- */
+@keyframes footerSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px); /* Começa 30px abaixo */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Termina na posição original */
+    }
+  }
+
+.agro-footer {
+    background-color: var(--background-light); /* Fundo claro similar ao da imagem */
+    color: var(--medium-text); /* Cor de texto padrão */
+    padding: 3rem 1.5rem; /* Espaçamento interno */
+    border-top: 1px solid var(--border-color-subtle); /* Borda superior sutil */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Container para limitar a largura máxima */
+.agro-footer-container {
+    max-width: 1200px; /* Largura máxima do conteúdo */
+    margin: 0 auto; /* Centraliza */
+    width: 100%;
+}
+
+/* Aplica animação de entrada às colunas */
+.agro-footer .footer-row .footer-col {
+    opacity: 0; /* Começa invisível */
+    animation: footerSlideUp 0.7s ease-out forwards; /* Aplica animação */
+}
+
+/* Adiciona delay para as colunas */
+.agro-footer .footer-row .footer-col:nth-child(1) { animation-delay: 0.1s; }
+.agro-footer .footer-row .footer-col:nth-child(2) { animation-delay: 0.2s; }
+.agro-footer .footer-row .footer-col:nth-child(3) { animation-delay: 0.3s; }
+
+
+/* --- Coluna 1: Marca, Descrição, Social --- */
+.footer-brand {
+    /* Layout flexbox se quiser alinhar logo/texto/social verticalmente */
+    /* display: flex;
+    flex-direction: column;
+    align-items: flex-start; */
+}
+
+.footer-logo {
+    height: 48px; /* Tamanho do logo AUMENTADO */
+    margin-bottom: 1rem;
+    display: block; /* Para ocupar sua própria linha */
+    transition: opacity 0.2s ease, transform 0.2s ease; /* Adicionada transição no transform */
+}
+.footer-logo:hover {
+    opacity: 0.9;
+    transform: scale(1.05); /* Efeito de escala no hover */
+}
+
+
+.footer-description.ant-typography {
+    color: var(--medium-text) !important;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 1.5rem !important; /* Espaço antes dos ícones sociais */
+}
+
+/* Ícones Sociais */
+.footer-social-icons.ant-space {
+    /* Ajusta o espaçamento entre os ícones */
+}
+.footer-social-icons .anticon {
+    font-size: 1.6em; /* Tamanho dos ícones Ligeiramente AUMENTADO */
+    color: var(--medium-text); /* Cor padrão dos ícones */
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.footer-social-icons .anticon:hover {
+    color: var(--primary-green); /* Cor no hover */
+    transform: translateY(-3px) rotate(5deg); /* Efeito sutil com rotação */
+}
+
+
+/* --- Coluna 2 & 3: Links e Contato --- */
+
+/* Títulos das Seções (Links, Contato) - AGORA VERDE */
+.footer-section-title.ant-typography {
+    color: var(--primary-green) !important; /* Títulos AGORA VERDES */
+    font-weight: 700; /* Mais Bold */
+    font-size: 1.2em; /* Tamanho AUMENTADO */
+    margin-bottom: 1.2rem !important; /* Espaço abaixo do título */
+}
+
+
+/* Container dos Links e Contato (usando Space vertical) */
+.footer-links.ant-space-vertical,
+.footer-contact.ant-space-vertical {
+    width: 100%; /* Ocupa a largura da coluna */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+}
+
+/* Estilo dos Links (comuns para Quick Links e Contato) */
+.footer-link {
+    color: var(--dark-text); /* Cor padrão mais escura */
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color 0.2s ease, transform 0.2s ease; /* Adicionada transição no transform */
+    padding: 2px 0; /* Pequeno padding para área de clique */
+    display: inline-block; /* Para que o padding funcione */
+    position: relative; /* Para efeito underline */
+    overflow: hidden; /* Esconde a linha de underline antes do hover */
+}
+.footer-link::after { /* Efeito underline sutil */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-green);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+}
+.footer-link:hover {
+    color: var(--primary-green); /* Cor no hover AGORA VERDE */
+    transform: translateX(5px); /* Efeito de slide sutil */
+}
+.footer-link:hover::after {
+    transform: translateX(0);
+}
+
+/* Ícones de Contato */
+.footer-contact .ant-space .anticon {
+    font-size: 1.2em; /* Tamanho do ícone de email/whatsapp Ligeiramente AUMENTADO */
+    color: var(--primary-green); /* Cor verde */
+    margin-right: 8px; /* Espaço entre ícone e texto AUMENTADO */
+}
+/* Garante que o texto do contato herde a cor padrão ou hover */
+.footer-contact .ant-space .footer-link {
+     color: var(--dark-text); /* Cor padrão para o texto do link de contato (Igual ao link geral) */
+}
+.footer-contact .ant-space:hover .footer-link,
+.footer-contact .ant-space .footer-link:hover {
+     color: var(--primary-green); /* Cor verde no hover para o link de contato */
+}
+/* Remove o efeito underline do link de contato para não duplicar se a linha for indesejada */
+.footer-contact .ant-space .footer-link::after {
+    display: none;
+}
+
+
+/* --- Separador e Bottom Bar --- */
+.footer-divider.ant-divider-horizontal {
+    margin: 2.5rem 0 !important; /* Espaço em cima e embaixo do divisor AUMENTADO */
+    border-color: var(--border-color-subtle) !important;
+}
+
+.footer-bottom {
+    text-align: center; /* Centraliza texto */
+    font-size: 0.85em;
+    color: var(--light-text); /* Cor de texto mais clara */
+}
+
+.footer-copyright.ant-typography,
+.footer-developer.ant-typography {
+    color: inherit !important; /* Herda a cor do pai (.footer-bottom) */
+    margin-bottom: 0.4rem !important; /* Espaço menor */
+}
+.footer-developer a {
+    color: var(--light-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.footer-developer a:hover {
+    color: var(--primary-green); /* Cor verde no hover */
+    text-decoration: underline;
+}
+
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .agro-footer { padding: 2rem 1rem; } /* Reduz padding em telas menores */
+    .agro-footer .footer-row .footer-col { animation-delay: 0.1s !important; } /* Remove delay stagger em mobile */
+    .footer-brand { text-align: center; align-items: center; } /* Centraliza na coluna única */
+    .footer-logo { height: 40px; margin-bottom: 0.8rem; } /* Logo menor em mobile */
+    .footer-logo:hover { transform: none; } /* Remove escala no hover em mobile */
+
+    .footer-description.ant-typography { font-size: 0.9em; }
+    .footer-social-icons.ant-space { justify-content: center; width: 100%; margin-bottom: 1.5rem;} /* Centraliza ícones sociais */
+    .footer-social-icons .anticon { font-size: 1.5em; }
+    .footer-social-icons .anticon:hover { transform: none; } /* Remove animação no hover em mobile */
+
+    .footer-section-title.ant-typography { text-align: center; font-size: 1.1em; margin-bottom: 1rem !important; color: var(--dark-text) !important; } /* Títulos voltam para cor padrão e tamanho menor */
+
+    .footer-links.ant-space-vertical,
+    .footer-contact.ant-space-vertical {
+         align-items: center; /* Centraliza links e contatos */
+         margin-bottom: 1.5rem; /* Espaço extra entre seções empilhadas */
+    }
+     .footer-links .footer-link,
+     .footer-contact .footer-link { font-size: 0.9em; transform: none; } /* Links menor e remove transform */
+      .footer-link::after { display: none; } /* Remove efeito underline em mobile */
+
+     .footer-contact .ant-space .anticon { margin-right: 0; margin-bottom: 4px; display: block; font-size: 1.1em;} /* Ícone acima do texto no contato */
+     .footer-contact .ant-space { flex-direction: column; align-items: center;} /* Empilha ícone e texto no contato */
+
+    .footer-divider.ant-divider-horizontal { margin: 2rem 0 !important;}
+    .footer-bottom { font-size: 0.8em; }
+}
+
+@media (max-width: 576px) {
+     .agro-footer { padding: 1.5rem 0.5rem; }
+     .footer-logo { height: 32px; }
+     .footer-description.ant-typography { font-size: 0.8em; }
+     .footer-section-title.ant-typography { font-size: 1em; }
+     .footer-divider.ant-divider-horizontal { margin: 1.5rem 0 !important;}
+     .footer-bottom { font-size: 0.7em; }
+}

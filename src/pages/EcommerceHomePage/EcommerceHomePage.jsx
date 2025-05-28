@@ -6,7 +6,7 @@ import HeroBannerAgro from '../../componentsAgro/HeroBannerAgro/HeroBannerAgro';
 import CategoryGrid from '../../componentsAgro/CategoryGrid/CategoryGrid';
 import ProductCard from '../../componentsAgro/ProductCard/ProductCard'; // Assuming ProductCard component exists
 import { Typography, Layout, Row, Col, Spin, Empty, Alert } from 'antd'; // Import necessary Ant Design components
-
+ import FooterLP from '../../componentsAgro/FooterAgro/FooterAgro';
 import { LoadingOutlined } from '@ant-design/icons'; // Import Ant Design icon
 import './EcommerceHomePage.css'; // Import specific CSS file
 
@@ -224,9 +224,7 @@ const EcommerceHomePage = () => {
       </Content>
 
        {/* Rodapé da página Ecommerce */}
-       <footer style={{ textAlign: 'center', padding: '20px', background: '#f0f2f5', borderTop: '1px solid #ddd', color: '#888' }}>
-           © {new Date().getFullYear()} Seu E-commerce Agropecuário - Placeholder Footer
-       </footer>
+        <FooterLP />
     </Layout>
   );
 };

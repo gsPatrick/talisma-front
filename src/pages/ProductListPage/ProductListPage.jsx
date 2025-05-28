@@ -8,7 +8,7 @@ import {
 } from '@ant-design/icons';
 import HeaderAgro from '../../componentsAgro/HeaderAgro/HeaderAgro';
 import ProductCard from '../../componentsAgro/ProductCard/ProductCard';
-// import FooterLP from '../../componentsLP/FooterLP';
+ import FooterLP from '../../componentsAgro/FooterAgro/FooterAgro';
 import debounce from 'lodash.debounce';
 import './ProductListPage.css';
 
@@ -634,7 +634,7 @@ const ProductListPage = () => {
         </Layout>
 
       {/* Renderiza Footer (ajuste conforme seu componente) */}
-       <footer className="placeholder-footer"> E-commerce Footer </footer> {/* Placeholder */}
+        <FooterLP/>
     </Layout>
   );
 };

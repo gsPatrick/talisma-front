@@ -4,7 +4,7 @@ import { Layout, Row, Col, Typography, Card, Avatar, Button } from 'antd';
 import { EnvironmentOutlined, TeamOutlined, RocketOutlined, CheckCircleOutlined, WhatsAppOutlined, StarOutlined, UserOutlined } from '@ant-design/icons'; // Adicionado StarOutlined e UserOutlined
 import HeaderAgro from '../../componentsAgro/HeaderAgro/HeaderAgro';
 // import FooterLP from '../../componentsLP/FooterLP';
-// import FooterAgro from '../../componentsAgro/FooterAgro';
+import FooterAgro from '../../componentsAgro/FooterAgro/FooterAgro';    // Importando FooterAgro
 import './AboutUsPage.css';
 
 const { Content } = Layout;
@@ -171,12 +171,10 @@ const AboutUsPage = () => {
 
       </Content>
 
-      {/* Renderiza o Footer */}
-      {/* Certifique-se de importar e usar o componente de Footer correto aqui */}
-      {/* {typeof FooterLP === 'function' ? <FooterLP /> : null} */}
-      {/* {typeof FooterAgro === 'function' ? <FooterAgro /> : null} */}
-      {/* Exemplo: <FooterAgro/> */}
 
+    
+      {/* Rodapé */}
+      <FooterAgro />
     </Layout>
   );
 };

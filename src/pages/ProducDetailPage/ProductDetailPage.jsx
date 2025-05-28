@@ -5,7 +5,7 @@ import { Layout, Row, Col, Card, Typography, Button, Spin, Alert, Image, Rate, I
 import { ShoppingCartOutlined, ArrowLeftOutlined, LoadingOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons'; // Removidos UserOutlined, MailOutlined, WhatsAppOutlined, TagOutlined, CalendarOutlined, IdcardOutlined - não usados diretamente aqui
 import HeaderAgro from '../../componentsAgro/HeaderAgro/HeaderAgro';
 import ProductCard from '../../componentsAgro/ProductCard/ProductCard'; // Usado para produtos relacionados
-// import FooterLP from '../../componentsLP/FooterLP';
+ import FooterLP from '../../componentsAgro/FooterAgro/FooterAgro';
 import { useCart } from '../../context/CartContext'; // Hook do carrinho
 import './ProductDetailPage.css';
 
@@ -366,7 +366,7 @@ const ProductDetailPage = () => {
       </Content>
 
       {/* Renderiza Footer (ajuste conforme seu componente) */}
-       <footer className="placeholder-footer"> E-commerce Footer </footer> {/* Placeholder */}
+       <FooterLP/>
     </Layout>
   );
 };

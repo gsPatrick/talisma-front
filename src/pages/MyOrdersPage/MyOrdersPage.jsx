@@ -4,7 +4,7 @@ import { Layout, Typography, Card, Row, Col, Spin, Button, Space, Table, Tag, me
 import { ShoppingCartOutlined, LoadingOutlined, ProfileOutlined, DollarCircleOutlined, CalendarOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import HeaderAgro from '../../componentsAgro/HeaderAgro/HeaderAgro';
-// import FooterAgro from '../../componentsAgro/FooterAgro';
+ import FooterLP from '../../componentsAgro/FooterAgro/FooterAgro';
 import { useAuth } from '../../context/AuthContext';
 import './MyOrdersPage.css';
 
@@ -415,7 +415,7 @@ const MyOrdersPage = () => {
       </Content>
 
       {/* Renderiza Footer (ajuste conforme seu componente) */}
-       <footer className="placeholder-footer"> E-commerce Footer </footer> {/* Placeholder */}
+       <FooterLP />
 
     </Layout>
   );
