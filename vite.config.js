@@ -8,13 +8,13 @@ export default defineConfig({
     proxy: { // Adicione ou modifique esta seção
       // Proxy para as chamadas da API (se não configurou ainda)
       '/api': {
-        target: 'http://localhost:3001', // O endereço do seu backend
+        target: 'https://geral-talismaapi.r954jc.easypanel.host', // O endereço do seu backend
         changeOrigin: true, // Necessário para hosts virtuais
         secure: false, // Use true se seu backend usa HTTPS
       },
       // Proxy para os arquivos de upload estáticos
       '/uploads': {
-        target: 'http://localhost:3001', // O endereço do seu backend
+        target: 'https://geral-talismaapi.r954jc.easypanel.host', // O endereço do seu backend
         changeOrigin: true, // Necessário
         secure: false, // Use true se seu backend usa HTTPS
       }
